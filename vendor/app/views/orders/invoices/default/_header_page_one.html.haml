@@ -1,0 +1,23 @@
+.header-page-one
+  
+  .clear
+
+  .company_data.floatright
+    = image_tag @current_vendor.image('invoice_logo'), :class => 'vendorlogo'
+    = raw Kramdown::Document.new(@report[:invoice_blurbs][:invoice][:header]).to_html
+  
+  .customer_data.floatleft
+    - if @report[:customer]
+      = @report[:customer][:company_name]
+      %br
+      == #{ @report[:customer][:first_name] } #{ @report[:customer][:last_name] }
+      %br
+      = @report[:customer][:street1]
+      %br
+      = @report[:customer][:street2]
+      %br
+      == #{ @report[:customer][:postalcode]} #{ @report[:customer][:city] } #{ @report[:customer][:country] }
+      %br
+      = @report[:customer][:state]
+      
+  .clear

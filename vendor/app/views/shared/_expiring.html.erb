@@ -1,0 +1,44 @@
+<% if GlobalData.@current_user.expiring.any?  %>
+<%= raw content_box_top(I18n.t("headings.expiring_soon"),{:width => '100%',:menu => false, :breadcrumb => false}, true) %>
+<table align="center" width="100%" class="stripe-me">
+        <thead>
+          <tr>
+            <th>
+              <%= I18n.t("activerecord.attributes.name") %>
+            </th>
+            <th align="right">
+              <%= I18n.t("activerecord.attributes.base_price") %>
+            </th>
+            <th align="right">
+              <%= I18n.t("activerecord.attributes.sku") %>
+            </th>
+            <th align="right">
+              <%= I18n.t("activerecord.attributes.expires_on") %>
+            </th>
+          </tr>
+        </thead>
+        <% 
+        cap = Time.now.beginning_of_day + 5.days
+        bcap = Time.now.beginning_of_day - 5.days
+        Item.scopied.where("expires_on between '#{bcap.strftime("%Y-%m-%d")}' and '#{cap.strftime("%Y-%m-%d")}' and (active IS TRUE or active = 1) and track_expiry IS TRUE").limit(25).each do |item| 
+        
+        %>
+          <tr>
+              <td valign="top">
+                 <%=  link_to item.name, "/items/#{item.id}/edit" %>
+              </td>
+              <td valign="top" align="right">
+                <%=  edit_me(:base_price,item,salor_number_to_currency(item.base_price),'',item.get_html_id) %>
+              </td>
+              <td valign="top" align="right">
+                <%=  link_to item.sku, "/items/#{item.id}/edit" %>
+              </td>
+              <td valign="top" align="right">
+              <%= I18n.l item.expires_on %>
+              </td>
+            </tr>
+        <% end %>
+</table>
+<%= 
+%>
+<% end %>

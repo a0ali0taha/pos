@@ -1,0 +1,9 @@
+<%= raw content_box_top(t("views.category_heading",:name => @category.name, :store => @category.vendor.name)) %>
+<table align="center" width="100%" align="center">
+  <tr>
+    <td valign="top">
+      <% @items = @category.items.visible.page(params[:page]).per(@current_vendor.pagination)  %>
+      <%= render :partial => 'shared/list_view', :locals => {  :klass => Item, :width => '60%',:collection => @items, :columns => [:name]} %>
+    </td>
+  </tr>
+</table>

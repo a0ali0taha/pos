@@ -1,0 +1,19 @@
+= form_for @transaction_tag, :html => { :multipart => true } do |f| 
+  %table{:align=>"center", :width=>'400px'}
+    %tr
+      %td{:colspan=>2}
+        - if @transaction_tag.errors.any?
+          %div#error_explanation
+            %h2= I18n.t("activerecord.errors.template.header.other", :count => @transaction_tag.errors.count,:model => t("activerecord.models.transaction_tag.one"))
+            %ul
+              - @transaction_tag.errors.full_messages.each do |msg| 
+                %li= msg 
+    %tr
+      %td=f.label :name 
+      %td=f.text_field :name
+    %tr
+      %td{:colspan=>2}
+        %hr
+    %tr
+      %td{:colspan=>2,:align=>'right'}= f.submit
+

@@ -1,0 +1,66 @@
+<table align="center" width="100%">
+  <tr>
+    <td valign="top" align="center">
+    
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= I18n.t("activerecord.errors.template.header.other", :count => @item.errors.count, :model => t("activerecord.models.cash_register.one"))%></h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <table>
+   <tr>
+     <td>
+        <div class="field left">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, :class => "keyboardable"%>
+        </div>
+     </td>
+     <td>
+       <div class="field left">
+        <%= f.label :sku %><br />
+        <%= f.text_field :sku, :class => "keyboardable"%>
+      </div>
+     </td>
+   </tr>
+   <tr>
+     <td>
+        <div class="field">
+          <%= f.label t("activerecord.attributes.the_shipper") %><br />
+          <%= f.collection_select :shipper_id, @item.vendor.shippers.visible, :id, :name, :include_blank => true %>
+        </div>
+        <div class="field">
+          <%= f.label t("activerecord.attributes.is_shipment_item") %><br />
+          <%= f.check_box :is_shipment_item %>
+        </div>
+     </td>
+     <td>
+     <div class="field">
+        <%= f.label :price %><br />
+        <%= f.text_field :price, :class => "keyboardable-int" %>
+      </div>
+       <div class="field">
+          <%= f.label :quantity %><br />
+          <%= f.text_field :quantity, :class => "keyboardable-int" %>
+        </div>
+     </td>
+   </tr>
+ </table>
+   
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note, :class => "keyboardable", :cols => 40, :rows => 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+  </tr>
+</table>

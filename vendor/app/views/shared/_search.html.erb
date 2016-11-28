@@ -1,0 +1,32 @@
+<div id="search" class="search hidden">
+<table align="center" width="100%">
+  <tr>
+    <td valign="top" width="50%">
+      <div class="search-div-input-constrainer">
+        <!-- search.js will dynamically add input field here -->
+      </div>
+    </td>
+    <td valign="top">
+      <select id="search_models">
+        <% searchable_models.each do |m| %>
+          <option value='<%= m[1] %>'><%= m[0] %></option>
+        <% end %>
+      </select>
+    </td>
+    <td valign="top">
+      <div class="button-up" onmousedown="sr.fn.search_pos.go()">
+        <%= t("views.forms.search") %>
+      </div>
+    </td>
+  </tr>
+</table>
+  <div id="search_results" class="search-results">
+  </div>
+  <br />
+  <div id="" align="right" class="button-row">
+    <div class="button-confirm-left" onmousedown="sr.fn.search_pos.displayPreviousPage();"><%= raw I18n.t("views.pagination.previous") %></div>
+    <div class="spacer">&nbsp;</div>
+    <div class="button-confirm" onmousedown="sr.fn.search_pos.displayNextPage();"><%= raw I18n.t("views.pagination.next") %></div>
+    <div class="button-cancel" onmousedown="sr.fn.search_pos.hidePopup();"><%= raw I18n.t("menu.done") %></div>
+  </div>
+</div>

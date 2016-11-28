@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Ubuntu-R;
+  src: url("/fonts/Ubuntu-R.ttf") format("truetype");
+}
+
+/* line 5, ../../app/assets/stylesheets/generic.sass */
+div.tools {
+  text-align: center;
+}
+/* line 7, ../../app/assets/stylesheets/generic.sass */
+div.tools div {
+  cursor: pointer;
+}
+
+/* line 10, ../../app/assets/stylesheets/generic.sass */
+div.centered-contents {
+  text-align: center;
+}
+
+/* line 13, ../../app/assets/stylesheets/generic.sass */
+div.extra-right-margin {
+  padding-right: 20px;
+}

@@ -1,0 +1,30 @@
+%script{:type => "text/javascript", :src => "/assets/jquery.modcoder.excolor.js"}
+= form_for(@category) do |f| 
+  - if @category.errors.any? 
+    #error_explanation
+      %h2= I18n.t("activerecord.errors.template.header.other", :count => @category.errors.count,:model => t("activerecord.models.category.one"))
+      - @category.errors.full_messages.each do |msg|
+        %p msg
+
+  %table{:width => '90%', :align=> 'center'}
+    %tr
+      %td
+        .field
+          = f.label :name
+          = f.text_field :name, :class => 'keyboardable'
+      %td
+        .field
+          = f.label :color
+          = f.text_field :color
+    %tr
+      %td
+        .field
+          = f.label :button_category
+          = f.check_box :button_category
+      %td
+        .field
+          = f.label :position
+          = f.text_field :position, :class => 'keyboardable', :size => 4, :style => 'width: 40px;'
+    %tr
+      %td{ :colspan => 2, :align => 'right'}
+        .actions= f.submit

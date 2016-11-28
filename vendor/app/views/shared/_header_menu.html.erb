@@ -1,0 +1,66 @@
+<div id="header" class="header">
+
+  <ul class="header-list">
+    <li>
+      <div align="center" class="first">
+        <a href="<%= main_app.vendors_path %>">
+          <img src="/images/salor-icon.png" />
+          <span class="icon-caption"><%= @current_user.username %></span>
+        </a>
+      </div>
+    </li>
+    <li>
+      <div align="center" id="btn-vendors-index" class="">
+          <%=  link_to raw(salor_icon(:vendor,{},32,I18n.t("menu.home"))), main_app.vendor_path(@current_vendor) %>
+      </div>
+    </li>
+    <li>
+      <div align="center" id="header_show_clockin" class="no-touchy cash-drop-header" onclick="sr.fn.user_logins.showPopup();">
+        <%= raw(salor_icon(:user,{},32,I18n.t("system.login"))) %>
+      </div>
+    </li>
+    <% if @current_user and @current_user.can(:index_items) %>
+    <li>
+      <div align="center" id="btn-items-index" class="">
+        <%=  link_to raw(salor_icon(:item,{},32,I18n.t("activerecord.models.item.other"))), main_app.items_path %>
+      </div>
+    </li>
+    <% end %>
+    <li>
+      <div align="center" id="btn-items-index" class="">
+        <%=  link_to raw(salor_icon(:order,{},32,I18n.t("activerecord.models.order.other"))), main_app.orders_path %>
+      </div>
+    </li>
+    <% if @current_user and @current_register and @current_user.can(:cashier) %>
+      <li>
+        <div align="center" id="header_cash_drop" class="no-touchy cash-drop-header" onclick="sr.fn.drawer.showTransactionPopup();">
+          <%= salor_icon(:cash_drop, {}, 20, @current_user.get_drawer.user.username ) %>
+          <br />
+          <div id='header_drawer_amount'>
+            <%= humanized_money_with_symbol @current_user.get_drawer.amount %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+    <% if @current_user and @current_user.can(:index_orders) %>
+    <li>
+      <div align="center" id="btn-orders-new" class="">
+      <%=  link_to raw(salor_icon(:cash_register,{},32,@current_register ? @current_register.name : "")), "/orders/new" %>
+      </div>
+    </li>
+    <% end %>
+    <% if @current_user and @current_user.can(:index_customers) %>
+    <li>
+      <div align="center" id="btn-customers-new" class="">
+        <%= link_to salor_icon(:customer,{},32,I18n.t("menu.customer")), main_app.customers_path %><br />
+      </div>
+    </li>
+    <% end %>
+    <li>
+      <div align="center" id="end_of_day_button" onclick="window.location = '/cash_registers/end_of_day';" class="no-touchy">
+      <%= salor_icon(:logout,{},32,I18n.t("system.finish_day")) %><br />
+      </div>
+    </li>
+  </ul>
+  <%= render :partial => "shared/generic_search" %>
+</div>

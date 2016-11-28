@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  sr.data.pos_core.order = <%= raw @current_order.to_json %>;
+  sr.data.pos_core.last_completed_order = <%= raw @last_completed_order.as_plugin_hash.to_json %>;
+
+  <%
+    items = []
+    @current_order.order_items.visible.each do |oi|
+      items << oi.to_json
+    end
+  %>
+  sr.data.pos_core.order_items = [<%= raw items.join(',') %>];
+  $(function () {
+    sr.fn.pos_core.updateOrder(sr.data.pos_core.order);
+    sr.fn.pos_core.updateOrderItems(sr.data.pos_core.order_items);
+  });
+</script>
+
+<%= render :partial => "menu", :locals => {:order => @current_order} %>
+<%= render :partial => "buttons/popup", :layout => false %> 
+
+<div class='clear'></div>
+
+<div id="pos-table-left-column-items" class="pos-table-left-column-items"></div>
+
+<%= render :partial => "shared/search" %>
+<%= render :partial => "complete_order" %>
+<%= render :partial => "last_orders" %>

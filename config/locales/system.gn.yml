@@ -1,0 +1,158 @@
+---
+gn:
+  activerecord:
+    errors:
+      messages:
+        dont_use_weird_skus: Nur Aa-Zz und 0-9 sind erlaubt
+        accepted: must be accepted
+        blank: muss eingegeben werden
+        confirmation: stimmt nicht überein
+        empty: darf nicht leer sein
+        equal_to: must be equal to %{count}
+        even: must be even
+        exclusion: ist reserviert
+        greater_than: must be greater than %{count}
+        greater_than_or_equal_to: must be greater than or equal to %{count}
+        inclusion: ist nicht in der Liste
+        invalid: ist ungültig
+        less_than: must be less than %{count}
+        less_than_or_equal_to: must be less than or equal to %{count}
+        not_a_number: ist keine Zahl
+        odd: must be odd
+        taken: wird bereits verwendet
+        too_long: ist zu lang (maximal %{count} Zeichen)
+        too_short: ist zu kurz (minimum ist %{count} Zeichen)
+        wrong_length: is the wrong length (should be %{count} characters)
+      template:
+        body: ! 'Bitte überprüfen Sie die folgenden Eingaben:'
+        header:
+          one: ! '%{count} Fehler hat verhindert, dass das Formular ''%{model}'' gespeichert
+            wird.'
+          other: ! '%{count} Fehler haben verhindert, dass das Formular ''%{model}''
+            gespeichert wird.'
+  date:
+    abbr_day_names:
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mär
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
+    day_names:
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%d. %B  %Y'
+      short: ! '%d. %b'
+    month_names:
+    - 
+    - Januar
+    - Februar
+    - März
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 Tag
+        other: ! '%{count} Tage'
+      x_minutes:
+        one: 1 minute
+        other: ! '%{count} minutes'
+      x_months:
+        one: 1 month
+        other: ! '%{count} months'
+      x_seconds:
+        one: 1 second
+        other: ! '%{count} seconds'
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  support:
+    array:
+      words_connector:
+        last_word_connector: ! ', und '
+        two_words_connector: ! ' und '
+  time:
+    am: ''
+    formats:
+      date_iso: ! '%Y-%m-%d'
+      date_normal: ! '%d. %B %Y'
+      date_short: ! '%d. %b %y'
+      datetime_iso: ! '%Y-%m-%d %H:%M:%S'
+      datetime_iso2: ! '%Y%m%dT%H%M%S'
+      default: ! '%a, %d. %b. %Y, %H:%M:%S %z'
+      iso: ! '%Y-%m-%d %H:%M:%S'
+      just_day: ! '%d. %B %Y'
+      just_time: ! '%H:%M'
+      long: ! '%d. %B %Y %H:%M:%S'
+      month_and_day: ! '%d. %B'
+      salor: ! '%a, %b %d %H:%M'
+      short: ! '%d. %b. %y  %H:%M'
+      time_short: ! '%H:%M'
+    pm: ''

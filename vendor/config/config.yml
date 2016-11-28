@@ -1,0 +1,14 @@
+---
+:exception_notification: false
+:exception_notification_sender: Sender Name <nobody@localhost>
+:exception_notification_receipients: nobody@localhost
+:invoice_style: default
+:reports:
+  :style: default
+height_metrics: MM,CM,DM,M
+length_metrics: MM,CM,DM,M
+width_metrics: MM,CM,DM,M
+weight_metrics: Piece,STK,BD,BT,CM,GR,DG,KG,LT,LB,ML,MT,OZ,PA,PK,PT,RL,ST,TB,WG
+sales_metrics: Piece,STK,BD,BT,CM,GR,DG,KG,LT,LB,ML,MT,OZ,PA,PK,PT,RL,ST,TB,WG
+:use_safe_device_path: false
+:tailor: false

@@ -1,0 +1,34 @@
+= raw content_box_top(I18n.t("headings.update_real_quantity"))
+
+.tools
+  .tool-icon= link_to salor_icon(:report, {}, 32, t('items.update_real_quantity.inventory_report')), '/inventory_reports/current'
+
+  .clear
+
+
+.new_inventory_box
+  %table
+    %tr
+      %td{ :style => "width: 300px; text-align: right;" }= I18n.t("activerecord.attributes.sku")
+      %td= text_field_tag 'inventory_sku'
+    %tr
+      %td{ :style => "width: 300px; text-align: right;" }== #{ I18n.t("activerecord.attributes.name") }
+      %td#inventory_item_name &nbsp;
+    %tr
+      %td{ :style => "width: 300px; text-align: right;" }== #{ I18n.t("activerecord.attributes.sku") }
+      %td#inventory_item_sku &nbsp;
+    %tr
+      %td{ :style => "width: 300px; text-align: right;" }== #{ I18n.t("items.inventory_report.current_quantity") }
+      %td#inventory_item_current_quantity &nbsp;
+    %tr
+      %td{ :style => "width: 300px; text-align: right;" }= I18n.t("items.inventory_report.add_quantity")
+      %td= text_field_tag 'inventory_quantity'
+    %tr
+      %td
+      %td
+        #inventory_msg &nbsp;
+
+:javascript
+  $(function() {
+    $("#inventory_sku").select();
+  })

@@ -1,0 +1,58 @@
+# ---
+# Global Passenger configuration. Uncomment the following two lines only once in all of your enabled sites.
+
+#PassengerMaxPoolSize 2
+#PassengerPoolIdleTime 15000
+# --- 
+
+<VirtualHost *:443>
+  ServerName INSTANCE_ID.sr.localhost
+  #ServerAlias *.sr.localhost
+  SetEnv SR_DEBIAN_SITEID INSTANCE_ID
+  SetEnv BUNDLE_GEMFILE /etc/salor-retail/INSTANCE_ID/Gemfile
+  DocumentRoot /usr/share/salor-retail/INSTANCE_ID/public
+  PassengerRestartDir /var/tmp/salor-retail/INSTANCE_ID
+  
+  SetEnvIf Host ^.*1\.sr\.localhost USE_HTTPS=no
+  SetEnvIf Host ^.*2\.sr\.localhost USE_HTTPS=no
+  
+  SetEnvIf Host ^.*4\.sr\.localhost USE_AUTH
+  SetEnvIf Host ^.*2\.sr\.localhost USE_AUTH
+
+  
+  RewriteEngine on
+  RewriteCond %{HTTPS} on
+  RewriteCond %{ENV:USE_HTTPS} no
+  RewriteRule ^/(.*) http://%{HTTP_HOST}/$1
+  
+  SSLEngine on
+  SSLCertificateFile /etc/apache2/ssl/salor-crt.pem
+  SSLCertificateKeyFile /etc/apache2/ssl/salor-key.pem
+
+  <Location />
+    Order allow,deny
+    Allow from 127.0.0.1 192.168 10.0
+    #Allow from all
+    
+    Allow from env=!USE_AUTH
+    
+    #AUTH: AuthType Digest
+    #AUTH: AuthName "SALOR"
+    #AUTH: AuthDigestDomain /
+    #AUTH: AuthDigestProvider file
+    #AUTH: AuthUserFile /etc/apache2/salor-auth-users
+    #AUTH: AuthGroupFile /etc/apache2/salor-auth-groups
+    #AUTH: Require group INSTANCE_ID.sr
+    
+    Satisfy any
+  </Location>
+  
+  # Passenger configuration for this VirtualHost
+  PassengerMaxRequests 100000
+  RailsAutoDetect off
+  PassengerStatThrottleRate 30
+  PassengerSpawnMethod smart
+  RailsAppSpawnerIdleTime 36000
+  PassengerHighPerformance on
+  #PassengerMinInstances 2
+</VirtualHost>

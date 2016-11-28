@@ -1,0 +1,54 @@
+<%= raw content_box_top(t("views.listing_items")) %>
+
+<table class='tools' align="center">
+  <tr>
+    <td align="center">
+        <div class="tool-icon" align="center" onmousedown="window.location = '<%= new_item_path(:vendor_id => params[:vendor_id]) %>'">
+          <%= link_to salor_icon(:add,{},24), new_item_path(:vendor_id => params[:vendor_id]) %><br /><span class='icon-caption'><%= I18n.t("menu.new_item") %></span>
+        </div>
+
+        <div class="tool-icon">
+          <%= link_to salor_icon(:inventory_report,{:class => 'pointer'},24), inventory_reports_path %><br /><span class='icon-caption'><%= I18n.t("menu.update_real_quantity") %></span>
+        </div>
+      
+        <div class="tool-icon">
+          <a href='/items/selection'><%= salor_icon(:thermal_printer,{},24) %></a><br /><span class='icon-caption'><%= I18n.t("menu.print") %></span>
+        </div>
+        
+        <div class="tool-icon">
+          <a href='/items/gift_cards'><%= salor_icon(:gift_card,{},24) %></a><br /><span class='icon-caption'><%= I18n.t("menu.gift_cards") %></span>
+        </div>
+        
+        <div class="tool-icon">
+          <a href='/items/report'><%= salor_icon(:report,{},24) %></a><br /><span class='icon-caption'><%= t('.report') %></span>
+        </div>
+        
+        <div class="tool-icon" >
+            <%= link_to salor_icon(:save_download,{},24),"/items/download?page=#{params[:page]}&keywords=#{params[:keywords]}&order_by=#{params[:order_by]}" %>
+            
+          <br /><span class='icon-caption'><%= I18n.t("menu.download") %></span>
+        </div>
+    </td>
+  </tr>
+</table>
+
+<%= render :partial => "items_list" %>
+
+<table id="upload_dropzone" align="center" width="50%">
+  <tr>
+    <td>
+      <div id="dropzone"><form action="/items/upload" class="dropzone dz-clickable" id="items_upload">
+
+          <div class="dz-message">
+            <%= I18n.t("views.drop_files_here")%><br>
+            <span class="note"><%= I18n.t("views.drop_files_only_csv") %></span>
+          </div>
+          
+        </form></div>
+    </td>
+  </tr>
+</table>
+
+<div class="pagination" align="center">
+  <%= paginate @items if @items %>
+</div>

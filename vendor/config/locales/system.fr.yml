@@ -1,0 +1,158 @@
+---
+fr:
+  activerecord:
+    errors:
+      messages:
+        dont_use_weird_skus: XXX Only Aa-Zz and 0-9 are permitted in the SKU field
+        accepted: doit être accepté
+        blank: ne doit pas être vide
+        confirmation: ne correspond pas
+        empty: ne doit pas être vide
+        equal_to: doit être égal à %{count}
+        even: doit être pair
+        exclusion: doit être dans la liste
+        greater_than: doit être supérieure à %{count}
+        greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+        inclusion: pas dans la liste
+        invalid: invalide
+        less_than: doit être inférieur à %{count}
+        less_than_or_equal_to: doit être inférieur ou égal à %{count}
+        not_a_number: n'est pas un chiffre
+        odd: doit être impair
+        taken: est déjà pris
+        too_long: est trop long (maximum %{count} characters)
+        too_short: est trop court (minimum %{count} characters)
+        wrong_length: longueur erronée (should be %{count} characters)
+        record_invalid: xxx
+      template:
+        body: ! 'Vérifiez les points suivants:'
+        header:
+          one: ! '%{count} error prevented the form ''%{model}'' from being saved.'
+          other: ! '%{count} errors prevented the form ''%{model}'' from being saved.'
+  date:
+    abbr_day_names:
+    - Di
+    - Lu
+    - Ma
+    - Me
+    - Je
+    - Ve
+    - Sa
+    abbr_month_names:
+    - 
+    - Jan
+    - Fév
+    - Mar
+    - Avr
+    - Mai
+    - Jui
+    - Jul
+    - Aoû
+    - Sep
+    - Oct
+    - Nov
+    - Déc
+    day_names:
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercedi
+    - Jeudi
+    - Vendredi
+    - Samedi
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%d. %B  %Y'
+      short: ! '%d. %b'
+    month_names:
+    - 
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Août
+    - Septembre
+    - Octobre
+    - Novembre
+    - Décembre
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: approx. 1 heure
+        other: approx. %{count} heures
+      about_x_months:
+        one: approx. 1 mois
+        other: approx. %{count} mois
+      about_x_years:
+        one: approx. 1 an
+        other: approx. %{count} ans
+      almost_x_years:
+        one: presque 1 an
+        other: presque %{count} ans
+      half_a_minute: 30 secondes
+      less_than_x_minutes:
+        one: moins d'1 minute
+        other: moins de %{count} minutes
+      less_than_x_seconds:
+        one: moins d'1 seconde
+        other: mois de %{count} secondes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: ! '%{count} jours'
+      x_minutes:
+        one: 1 minute
+        other: ! '%{count} minutes'
+      x_months:
+        one: 1 mois
+        other: ! '%{count} mois'
+      x_seconds:
+        one: 1 seconde
+        other: ! '%{count} secondes'
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Secondes
+      year: Année
+  helpers:
+    select:
+      prompt: Selectionner
+    submit:
+      create: Créer %{model}
+      submit: Enregistrer %{model}
+      update: Mettre à jour %{model}
+  support:
+    array:
+      words_connector:
+        last_word_connector: ! ', et '
+        two_words_connector: ! ' et '
+  time:
+    am: ''
+    formats:
+      date_iso: ! '%Y-%m-%d'
+      date_normal: ! '%d. %B %Y'
+      date_short: ! '%d. %b %y'
+      datetime_iso: ! '%Y-%m-%d %H:%M:%S'
+      datetime_iso2: ! '%Y%m%dT%H%M%S'
+      default: ! '%a, %d. %b. %Y, %H:%M:%S %z'
+      iso: ! '%Y-%m-%d %H:%M:%S'
+      just_day: ! '%d. %B %Y'
+      just_time: ! '%H:%M'
+      long: ! '%d. %B %Y %H:%M:%S'
+      month_and_day: ! '%d. %B'
+      salor: ! '%a, %b %d %H:%M'
+      short: ! '%d. %b. %y  %y %H:%M'
+      time_short: ! '%H:%M'
+    pm: ''
+

@@ -1,0 +1,35 @@
+= raw content_box_top(I18n.t("headings.shipments"))
+  
+%div.pagination= paginate @shipments if @shipments
+
+
+%table{:width=>"90%",:align=>"center", :class => 'stripe-me'}
+  %tr{:class => 'no-stripe'}
+    %td{:colspan=>9,:align=>'right'}
+      = link_to (t 'menu.new_shipment'), new_shipment_path, :class => 'links new-model-button'
+  %tr{:class => 'no-stripe'}
+    %td{:colspan=>9}
+      %h2= t('activerecord.models.shipment.other')
+      %hr
+  %tr
+    %th= Shipment.human_attribute_name(:name).upcase
+    %th= Shipment.human_attribute_name(:from).upcase
+    %th= Shipment.human_attribute_name(:to).upcase
+    %th= Shipment.human_attribute_name(:price).upcase
+    %th= Shipment.human_attribute_name(:paid).upcase
+    %th= Shipment.human_attribute_name(:status).upcase
+    %th
+    %th
+   
+  - @shipments.each do |s|
+    - sname = s.shipper.nil? ? t("system.errors.value_not_set") : s.shipper.name
+    - rname = s.receiver.nil? ? t("system.errors.value_not_set") : s.receiver.name
+    %tr
+      %td= link_to s.name, shipment_path(s)
+      %td= sname
+      %td= rname
+      %td= humanized_money_with_symbol(s.purchase_price_total)
+      %td= s.paid
+      %td= s.shipment_type.name if s.shipment_type
+      %td{:align=>:center}= link_to salor_icon(:edit,{},32,t(:edit)), edit_shipment_path(s)
+      %td{:align=>:center}= link_to salor_icon(:delete,{},32,t("menu.destroy")), shipment_path(s), :method => :delete, :confirm => t(:are_you_sure)

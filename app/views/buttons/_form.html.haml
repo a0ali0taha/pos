@@ -1,0 +1,40 @@
+%script{:type => "text/javascript", :src => "/assets/jquery.modcoder.excolor.js"}
+= form_for(@button) do |f|
+  - if @button.errors.any?
+    %div#error_explanation
+      %h2= I18n.t("activerecord.errors.template.header.other", :count => @button.errors.count,:model => t("activerecord.models.button.one"))
+      %ul
+        - @button.errors.full_messages.each do |msg| 
+          %li= msg 
+  %table{:width => '90%', :align => 'center'}
+    %tr
+      %td
+        .field
+          = f.label :name
+          = f.text_field :name, :class => 'keyboardable'
+      %td
+        .field
+          = f.label :sku
+          = f.text_field :sku, :class => 'keyboardable'
+    %tr
+      %td
+        .field
+          = f.label :category_id
+          = collection_select :button, :category_id, @button_categories, :id, :name, :prompt => true
+      %td
+        .field
+          = f.label :color
+          = f.text_field :color
+    %tr
+      %td
+        .field
+          = f.label :position
+          = f.text_field :position, :class => 'keyboardable'
+      %td
+        .actions
+          = f.submit t('helpers.submit.save')
+          
+:javascript
+  $(function() {
+    $("#button_color").modcoder_excolor();
+  })

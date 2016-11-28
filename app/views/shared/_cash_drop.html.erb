@@ -1,0 +1,77 @@
+<div id="cash_drop" class="cash-drop hidden">
+
+<%= render :partial => "shared/dt_tags" %>
+
+<div class="cash-drop-error"></div>
+<form id="cash_drop_form">
+  <input type="hidden" id="transaction_type" name="transaction[trans_type]" value=""/>
+  <span class='cash_drop_label'><%= I18n.t("menu.cash_register") %>:</span>
+  <span class="pos-cash-register-amount"><%= humanized_money_with_symbol(@current_user.get_drawer.amount) if @current_user %></span>
+
+  <% if @current_user and @current_user.can(:manager)  %>
+      <p>
+        <span class='cash_drop_label'><%= I18n.t("activerecord.models.user.one") %></span>
+        <select name="user_id" id="user_id">
+          <% @current_vendor.users.visible.each do |emp|  %>
+            <option value="<%= emp.id %>"><%= emp.username %></option>
+          <% end %>
+        </select>
+      </p>
+  <% else %>
+     <p>
+        <span class='cash_drop_label'><%= I18n.t("activerecord.models.user.one") %></span>
+        <input type="password" name="password" id="cash_drop_password" class="keyboardable text-input"/>
+        </p>
+  <% end %>
+      <p style="background:#683870;padding:5px;">
+        <span class='cash_drop_label' style="font-weight:bold;font-size:1.5em;"><%= I18n.t("activerecord.attributes.amount") %></span>
+        <%
+          # prefil amount if cash_drawer is empty
+          last_dt = @current_vendor.drawer_transactions.last
+          if @current_user and @current_user.get_drawer and last_dt and @current_user.get_drawer.amount_cents.zero? then
+            amount = number_with_precision last_dt.amount_cents.abs / 100.0, :precision => 2
+          else
+            amount = number_with_precision 0.0, :precision => 2
+          end
+        %>
+        <input id="cash_drop_amount" type="text" name="transaction[amount]" class="cash-drop-amount text-input keyboardable-int" value="<%= amount %>" size=3 />
+      </p>
+      <p>
+        <span class='cash_drop_label'><%= I18n.t("activerecord.attributes.notes") %></span>
+        <textarea name="transaction[notes]" id="cash-drop-notes-id" class="input keyboardable" rows="3" size=1></textarea>
+      </p>
+
+            <% if @current_vendor.transaction_tags.visible.any? then %>
+            <div align="center">
+             <input type="hidden" id="dt_tag" name="transaction[tag]" value="None">
+            <div class="generic-button dt-tag-target" onmousedown="$('.dt-tags').show();">
+              <%= I18n.t("activerecord.models.transaction_tag.one") %>
+            </div>
+            </div>
+            <% end %>
+
+            <div align="center" style="width:186px;margin:0 auto;">
+              <div id="confirm_cash_drop" 
+                   class="button-confirm-left trans-button" 
+                   name="drop" 
+                   onclick="$('#transaction_type').val('drop');sr.fn.drawer.saveTransaction();"
+                   style="margin-left:0;margin-right:10px;width:64px;height:64px;background-color:#26ad74;display:block;float:left;padding-right:10px;color: white;font-size: 60px;line-height: 60px;">
+                   +
+              </div>
+              <div id="confirm_cash_payout" 
+                   class="button-confirm trans-button" 
+                   name="payout" 
+                   onclick="$('#transaction_type').val('payout');sr.fn.drawer.saveTransaction();"
+                   style="margin-left:10px;margin-right:0;width:64px;height:64px;background-color:#db422b;display:block;float:left;padding-left:10px;color: white;font-size: 60px;line-height: 60px;">
+                   &ndash;
+              </div>
+            </div>
+
+</form>
+<div class="clear-hr"></div>
+<div class="button-row" align="right">
+      <div id="cancel_cash_drop" class="button-cancel" onclick="sr.fn.drawer.hideTransactionPopup();"><%= I18n.t("helpers.submit.cancel") %></div>
+</div>
+</div>
+
+

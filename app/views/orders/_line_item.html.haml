@@ -1,0 +1,7 @@
+%tr
+  %td= line_item.item.name
+  %td= line_item.sku
+  %td= line_item.quantity
+  %td= number_to_percentage line_item.rebate
+  %td= humanized_money_with_symbol line_item.net
+  %td= humanized_money_with_symbol line_item.total

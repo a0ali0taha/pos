@@ -1,0 +1,93 @@
+div.paper-invoice
+  border: 1px solid white
+  position: relative
+  height: 310mm
+  
+  div.header-page-one
+    :height 120mm
+
+  img.salorlogo
+    margin: 5em
+    width: 5em
+    
+  img.vendorlogo
+    max-height: 35mm
+    max-width: 40mm
+    
+    
+  div.company_data
+    text-align: right
+    width: 50%
+    
+  div.customer_data
+    :position absolute
+    :top 52mm
+    :left 19mm
+    :width 101mm
+    :height 46mm
+    :font-size 5mm
+    
+  div.invoice_blurb_footer
+    :font-size 80%
+    :position absolute
+    :bottom 10mm
+    
+  textarea
+    width: 100%
+    height: 3em
+    border: none
+    
+  input#invoice_comment,
+  input#delivery_note_comment
+    background-color: transparent
+    border: none
+    display: inline
+
+  table.striped-table2 
+    width: 100%
+    border-collapse: collapse
+    a
+      text-decoration: none
+    td
+      border: 1px solid black
+    td.total,
+    td.price
+      text-align: right
+    td.quantity
+      text-align: center
+    th
+      color: black
+      border: 1px solid black
+    tr 
+      background-color: white
+      border-bottom: 1px solid black
+    tr:first-child 
+      background-color: #D0D0D0
+    tr:nth-child(even) 
+      backgrond-color: #F0F0F0
+    tr.total
+      border-top: 2px solid black
+      background-color: #D0D0D0
+      font-weight: bold
+
+  table.striped-table2.has-total
+    tr:last-child 
+      background-color: #D0D0D0
+      border-top: 3px solid black
+      font-weight: bold
+      
+  table.striped-table2.small
+    width: 35%
+
+table.item-report-entry tr:first-child
+  background-color: #D0D0D0
+  padding: 10px
+  font-size: 125%
+table.item-report-entry label
+  padding: 3px
+  text-transform: uppercase
+  font-weight: bolder
+table.item-report-entry .small-text
+  font-size: 10px
+table.item-report-entry a,table.item-report-entry a:visited
+  color: black

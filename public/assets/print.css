@@ -1,0 +1,79 @@
+/* line 1, ../../app/assets/stylesheets/print.sass */
+div#header,
+div#notice,
+div#errors,
+div#cash_drop,
+div.help,
+div.title-container,
+div#coincalculator,
+form#date_range,
+div.hidden,
+div.tools,
+img#button-move-all-shipment-items,
+img.button-move-item,
+button,
+span.version,
+span.salorbinversion,
+a.reload-window,
+div.close-window,
+div.button-row,
+.no-print,
+.kbd-show-button,
+input {
+  display: none;
+}
+
+/* line 24, ../../app/assets/stylesheets/print.sass */
+body {
+  font-size: 90%;
+  text-align: left;
+  font-family: Arial;
+}
+
+/* line 29, ../../app/assets/stylesheets/print.sass */
+.floatleft {
+  float: left;
+}
+
+/* line 32, ../../app/assets/stylesheets/print.sass */
+.marginauto {
+  margin: auto;
+}
+
+/* line 35, ../../app/assets/stylesheets/print.sass */
+.floatright {
+  float: right;
+}
+
+/* line 38, ../../app/assets/stylesheets/print.sass */
+.left {
+  text-align: left;
+}
+
+/* line 41, ../../app/assets/stylesheets/print.sass */
+.center {
+  text-align: center;
+}
+
+/* line 44, ../../app/assets/stylesheets/print.sass */
+.right {
+  text-align: right;
+}
+
+/* line 47, ../../app/assets/stylesheets/print.sass */
+.clear {
+  clear: both;
+}
+
+/* line 50, ../../app/assets/stylesheets/print.sass */
+input.user_logout_time, input.user_login_time {
+  display: block;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+/* line 56, ../../app/assets/stylesheets/print.sass */
+div.no-print, a.noprint {
+  display: none;
+}

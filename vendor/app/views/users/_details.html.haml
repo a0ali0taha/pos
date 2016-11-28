@@ -1,0 +1,21 @@
+%h2= @user.full_name + " (#{@user.username})"
+
+%p== #{ t "views.single_words.from" } #{ l @from, :format => :long }
+%p== #{ t "views.single_words.to" } #{ l @to, :format => :long }
+
+%table.striped-table2
+  %tr
+    %td &nbsp;
+    %td
+  %tr
+    %td= I18n.t('activerecord.models.drawer.one')
+    %td{:align=>"right"}= humanized_money_with_symbol @user.get_drawer.amount
+  %tr
+    %td= I18n.t('activerecord.models.order.other')
+    %td{:align=>"right"}= @user.orders.where(:completed_at => @from..@to, :paid => 1).count
+  %tr
+    %td= I18n.t('activerecord.attributes.cash_made')
+    %td{:align=>"right"}= humanized_money_with_symbol Money.new(@user.orders.where(:completed_at => @from..@to, :paid => 1).sum(:total_cents), @current_vendor.currency)
+  %tr
+    %td= I18n.t('activerecord.attributes.rebate')
+    %td{:align=>"right"}= humanized_money_with_symbol Money.new(@user.order_items.where(:completed_at => @from..@to).sum(:rebate_amount_cents), @current_vendor.currency)

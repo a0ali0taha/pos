@@ -1,0 +1,46 @@
+# ---
+# Global Passenger configuration. Uncomment this only once in all of your sites.
+
+#PassengerMaxPoolSize 2
+#PassengerPoolIdleTime 15000
+# --- 
+
+<VirtualHost *:80>
+  ServerName INSTANCE_ID.sr.localhost
+  #ServerAlias *.sr.localhost
+  SetEnv SR_DEBIAN_SITEID INSTANCE_ID
+  SetEnv BUNDLE_GEMFILE /etc/salor-retail/INSTANCE_ID/Gemfile
+  DocumentRoot /usr/share/salor-retail/INSTANCE_ID/public
+  #PassengerPreStart http://INSTANCE_ID.sr.localhost/
+  PassengerRestartDir /var/tmp/salor-retail/INSTANCE_ID
+  
+  SetEnvIf Host ^.*2\.sr\.localhost USE_AUTH
+  SetEnvIf Host ^.*4\.sr\.localhost USE_AUTH
+
+  <Location />
+    Order allow,deny
+    Allow from 127.0.0.1 192.168 10.0
+    #Allow from all
+    
+    Allow from env=!USE_AUTH
+    
+    #AUTH: AuthType Digest
+    #AUTH: AuthName "SALOR"
+    #AUTH: AuthDigestDomain /
+    #AUTH: AuthDigestProvider file
+    #AUTH: AuthUserFile /etc/apache2/salor-auth-users
+    #AUTH: AuthGroupFile /etc/apache2/salor-auth-groups
+    #AUTH: Require group INSTANCE_ID.sr
+    
+    Satisfy any
+  </Location>
+  
+  # Passenger configuration for this VirtualHost
+  PassengerMaxRequests 100000
+  RailsAutoDetect off
+  PassengerStatThrottleRate 30
+  PassengerSpawnMethod smart
+  RailsAppSpawnerIdleTime 36000
+  PassengerHighPerformance on
+  #PassengerMinInstances 2
+</VirtualHost>

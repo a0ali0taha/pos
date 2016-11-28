@@ -1,0 +1,37 @@
+%td.left
+  - if depth > 0
+    = raw "&nbsp;" * 2 * depth
+    = "↳" if depth > 1
+  = link_to item.name, item_path(item)
+%td
+  - if item.behavior == 'coupon' and item.coupon_type == 1
+    = number_to_percentage item.price
+  - elsif item.behavior == 'coupon' and item.coupon_type == 3
+    /nothing
+  - elsif not item.buy_price.zero?
+    == #{ humanized_money_with_symbol item.price } (#{ humanized_money_with_symbol item.buy_price })
+  - else
+    = humanized_money_with_symbol item.price
+  
+%td= item.sku
+%td= number_to_percentage item.tax_profile.value
+%td
+  - if item.parent
+    == #{ item.quantity_with_stock.to_i } (#{ item.quantity_with_recursion.to_i })
+  - elsif item.quantity_with_stock == Integer(item.quantity_with_stock.to_i)
+    = item.quantity_with_stock.to_i
+  - else
+    = item.quantity_with_stock
+
+%td= item.shipper_name
+
+%td= item.packaging_unit
+- custom_columns.each do |col|
+  - col = current_plugin_manager.apply_filter('item_list_column',{:item => item.attributes, :column => col})
+  %td=raw(col[:column])
+%td
+  - if @current_user.can(:edit_items)
+    = link_to salor_icon(:edit,{},32), edit_item_path(item)
+%td
+  - if @current_user.can(:destroy_items)
+    = link_to(salor_icon(:delete,{},32), item, :confirm => 'Are you sure?', :method => :delete)

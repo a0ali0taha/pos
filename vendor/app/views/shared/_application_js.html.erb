@@ -1,0 +1,98 @@
+<script type="text/javascript">
+
+sr.data.session.other.workstation = <%= workstation? %>;
+sr.data.session.other.mobile = <%= not workstation? %>;
+
+i18n.pieces = [<%= I18n.t('number.currency.format.pieces', :locale => @region).split(',').find_all { |piece| piece.to_f > 2.0}.join(',') %>];
+
+<%
+  if @current_user
+    shippers = @current_vendor.shippers.visible
+    ships = []
+    shippers.each do |ship|
+      ships << "<option value='Shipper:#{ship.id}'>#{ship.name}</option>"
+    end
+    shippers = @current_user.vendors.visible
+    shippers.each do |ship|
+      ships << "<option value='Vendor:#{ship.id}'>#{ship.name}</option>"
+    end
+    ships = ships.join(' ')
+    inplace_ships = "<select class='inplaceedit'>#{ships}</select>"
+
+    categories = @current_vendor.categories.visible
+    cats = []
+    categories.each do |cat|
+      cats << "<option value='#{cat.id}'>#{cat.name.gsub('"','\"')}</option>"
+    end
+    cats = cats.join(' ')
+    inplace_cats = "<select class='inplaceedit'>#{cats}</select>"
+
+    vendors = @current_user.vendors.visible
+    stores = []
+    vendors.each do |store|
+      stores << "<option value='#{store.id}'>#{store.name}</option>"
+    end
+    stores = stores.join(' ')
+    inplace_stores = "<select class='inplaceedit'>#{stores}</select>"
+
+    locations = @current_vendor.locations.visible
+    locs = []
+    locations.each do |loc|
+      locs << "<option value='#{loc.id}'>#{loc.name}</option>"
+    end
+    locs = locs.join(' ')
+    inplace_locations = "<select class='inplaceedit' >#{locs}</select>"
+
+    item_types = @current_vendor.item_types.visible
+    itps = []
+    item_types.each do |itp|
+      itps << "<option value='#{itp.id}'>#{itp.name}</option>"
+    end
+    itps = itps.join(' ')
+    inplace_itemtypes = "<select class='inplaceedit' >#{itps}</select>"
+    
+  end
+%>
+
+// TODO: modernize this: render the following as underscore templates from JSON
+sr.data.inplace_edit.shippers_select_html = "<%= escape_javascript raw inplace_ships %>";
+sr.data.inplace_edit.categories_select_html = "<%= escape_javascript raw inplace_cats %>";
+sr.data.inplace_edit.vendors_select_html = "<%= escape_javascript raw inplace_stores %>";
+sr.data.inplace_edit.locations_select_html = "<%= escape_javascript raw inplace_locations %>";
+sr.data.inplace_edit.itemtypes_select_html = "<%= escape_javascript raw inplace_itemtypes %>";
+
+sr.data.resources.sale_type_array = <%= raw @current_vendor.sale_types.visible.to_json %>;
+sr.data.resources.country_array = <%= raw @current_vendor.countries.visible.to_json %>;
+sr.data.resources.item_type_array = <%= raw @current_vendor.item_types.visible.to_json %>;
+sr.data.resources.category_array = <%= raw @current_vendor.categories.visible.to_json %>;
+sr.data.resources.payment_method_array = <%= raw @current_vendor.payment_methods_types_list.to_json %>;
+sr.data.resources.payment_method_object = <%= raw @current_vendor.payment_methods_as_objects.to_json %>;
+sr.data.resources.tax_profile_object = <%= raw @current_vendor.json_tax_profiles %>;
+
+
+sr.data.session.params = {
+  action: "<%= params[:action] %>",
+  controller: "<%= params[:controller] %>",
+  user: { name: "<%= @current_user.username if @current_user %>" }
+};
+
+<% if @current_user %>
+  sr.data.session.user = <%= raw @current_user.to_json %>;
+  sr.data.session.vendor = <%= raw @current_vendor.to_json %>;
+  sr.data.session.drawer = <%= raw @current_user.get_drawer.to_json %>;
+<% end %>
+
+<% if @current_register %>
+  sr.data.session.cash_register = <%= raw @current_register.attributes.to_json %>;
+<% end %>
+
+
+<% @current_plugin_manager.metas.each do |name,hash| %>
+  var <%= name %> = {};
+  <%= name %>.meta = <%= raw hash.to_json %>;
+<% end %>
+var CurrentItem = {};
+<% if @item then %>
+  CurrentItem = <%= raw @item.attributes.to_json %>;
+<% end %>
+</script>

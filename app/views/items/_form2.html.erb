@@ -1,0 +1,520 @@
+<script type="text/javascript">
+  $(function () {
+    // i18n numbers
+    $(".delimit-number").each(function() {
+      $(this).val(sr.fn.math.toDelimited($(this).val()));
+    })
+    
+    // no form submission on enter key
+    $('input').keypress(function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
+<% unless @item.new_record? %>
+  <table class="tools">
+    <tr>
+      <td >
+          <div class="tool-icon" style="width: 100px;">
+            <%= link_to salor_icon(:broken, {},32), new_broken_item_path(:sku => @item.sku, :name => @item.name, :base_price => @item.base_price) %><br />
+            <span class="icon-caption"> <%= I18n.t("menu.new_broken_item") %></span>
+          </div>
+      </td>
+      <% unless @item.new_record? %>
+        <td>
+          <div class="tool-icon" style="width: 100px;">
+            <%= link_to salor_icon(:action, {},32), item_new_action_path(@item) %><br />
+            <span class="icon-caption"><%= I18n.t("menu.new_action") %></span>
+          </div>
+        </td>
+      <% end %>
+      <td>
+          <div class="tool-icon" style="width: 100px;">
+          <% if @item.category then
+                cat_name = @item.category.sku
+              else
+                cat_name = ''
+              end
+          %>
+          <%= link_to salor_icon(:button, {},32), new_button_path(:item => { :sku => @item.sku, :name => @item.name, :category_sku => cat_name}) %><br />
+          <span class="icon-caption"><%= I18n.t("menu.new_button") %></span>
+        </div>
+      </td>
+      <%= @current_plugin_manager.do_hook("after_edit_item_tools") %>
+    </tr>
+  </table>
+<% end %>
+
+<!-- Begin Form -->
+<div class="right">
+  <%= form_for(@item) do |f| %>
+    <table width="90%" align="center">
+      <tr>
+        <td colspan="2" align="right"> 
+          <div class="actions">
+            <%= f.submit t('helpers.submit.save')%>
+          </div>
+          <% if @item.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= I18n.t("activerecord.errors.template.header.other", :count => @item.errors.count,:model => t("activerecord.models.item.one"))%></h2>
+              <ul>
+              <% @item.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+      
+    <!--   Begin Form Fields -->
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.attributes.name") %> </td>
+        <td> <%= f.text_field :name, :class => "keyboardable", :style => "width: 80%;" %> </td>
+      </tr>
+      
+      <tr>
+        <td> 
+          <%= select_tag :locale_select, options_for_select(SalorRetail::Application::LANGUAGES.to_a.collect{ |a| a.reverse }), :onchange => "sr.fn.items.itemsAddNameTranslation($(this).val());" %>
+        </td>
+        <td> 
+        <script type="text/javascript">
+        $(function () {
+          <% @item.name_translations.each do |k,v|%>
+            inp = sr.fn.items.itemsAddNameTranslation('<%= k %>');
+            inp.val("<%= escape_javascript v %>");
+          <% end %>
+          });
+        </script>
+          <div id="name_translations">
+          
+          </div>
+        </td>
+      </tr>
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.attributes.sku") %> </td>
+        <td> <%= f.text_field :sku, :class => "keyboardable", :style => "width: 80%;" %> </td>
+      </tr>
+      
+      <tr>
+        <td> <%= f.label Item.human_attribute_name :description %> </td>
+        <td> <%= f.text_field :description, :class => "keyboardable", :style => "width: 80%;" %> </td>
+      </tr>
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.attributes.base_price") %> </td>
+        <td> <%= f.text_field salor_number_with_delimiter(:base_price), :class => "keyboardable-int delimit-number" %> </td>
+      </tr>
+      
+
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.attributes.buyback_price") %> </td>
+        <td> <%= f.text_field :buyback_price, :class => 'keyboardable-int delimit-number'%> </td>
+      </tr>
+      
+      
+      <tr>
+        <td>  <%= f.label I18n.t("activerecord.models.tax_profile.one") %> </td>
+        <td> <%= f.collection_select :tax_profile_id, @item.vendor.tax_profiles.visible, :id, :name, :include_blank => true %> </td>
+      </tr>
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.models.category.one") %> </td>
+        <td> <%= f.collection_select :category_id, @item.vendor.categories.visible, :id, :name, :include_blank => true %> </td>
+      </tr>
+      
+      <tr>
+        <td> <%= f.label I18n.t("activerecord.models.item_type.one") %> </td>
+        <td>  <%= f.collection_select :item_type_id, @current_vendor.item_types.visible, :id, :name %> </td>
+      </tr>
+      
+
+      
+      <% if not @item.sku.blank?  %>
+        <tr>
+          <td>&nbsp;</td>
+          <td>
+            <table align="left" height="150px">
+              <tr>
+                <td>
+                    <%
+                        b = Barcode.new(@item)
+                        barcodepath = b.create
+                      %>
+                      <div style="background-color: white;">
+                        <img src="<%= barcodepath %>.png" />
+                      </div>
+                </td>
+                <td valign="middle" align="center"> 
+                  <div class="new-item-field">
+                    <%= salor_icon(:sticker_printer, {:onclick => "sr.fn.salor_bin.printUrl(sr.data.session.cash_register.sticker_printer, '/items/labels', '&id=#{ @item.id }&type=sticker&style=default')"},32)%> 
+                    &nbsp;&nbsp;&nbsp;
+                    <%= salor_icon(:thermal_printer,{ :onclick => "sr.fn.salor_bin.printUrl(sr.data.session.cash_register.thermal_printer,'/items/labels', '&id=#{ @item.id }&type=label&style=default')"},32) %> 
+                  </div>
+                  <div class="clear">&nbsp;</div>              
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      <% end %>
+      
+      <% if @item.parent or @item.child %>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div>
+              <% topmost_parent = @current_vendor.items.visible.find_by_sku(@item.recursive_parent_sku_chain.last) %>
+              <% topmost_parent.recursive_child_sku_chain.each do |sku| %>
+                <% i = @current_vendor.items.visible.find_by_sku(sku) %>
+                <p><%= link_to(i.name + " (" + i.sku + ")", edit_item_path(i)) %></p>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    
+    <!-- ################### -->
+    
+    <tr>
+      <td colspan="2">  
+        <hr />
+        <h2><%= t("menu.stock_management") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.ignore_qty") %> </td>
+      <td> <%= f.check_box :ignore_qty %></td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.quantity") %> </td>
+      <td> <%= f.text_field :quantity, :class => "keyboardable-int delimit-number", :size => 7 %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.min_quantity") %> </td>
+      <td> <%= f.text_field :min_quantity, :class => "keyboardable-int delimit-number" %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.child_sku") %> </td>
+      <td> <%= f.text_field :child_sku, :class => "keyboardable" %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.packaging_unit") %> </td>
+      <td> <%= f.text_field :packaging_unit, :class => "keyboardable-int delimit-number" %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.models.location.one") %> </td>
+      <td> <%= f.collection_select :location_id, @item.vendor.locations.visible, :id, :name, :include_blank => true %> </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2"> <%= render :partial => "multi_location_form", :locals => {:item => @item, :form => f}%> </td>
+    </tr>
+    
+    
+    
+    
+    <!-- ################### -->
+    <tr>
+      <td colspan="2">  
+        <hr />
+        <h2><%= t("activerecord.models.shipper.other") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.the_shipper") %> </td>
+      <td> <%= f.select :shipper_id, @item.vendor.shippers.visible.collect {|t| [t.name,t.id]}, :include_blank => true %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.shipper_sku") %> </td>
+      <td> <%= f.text_field :shipper_sku, :class => 'keyboardable' %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.purchase_price") %> </td>
+      <td> <%= f.text_field :purchase_price, :class=> "keyboardable-int delimit-number" %> </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2">
+        <%= render :partial => "multi_shipper_form", :locals => { :item => @item, :form => f }%>
+      </td>
+    </tr>
+
+    
+    
+    
+    <tr>
+      <td colspan="2">
+        <hr />
+        <h2><%= t("views.single_words.coupons") %> & <%= t("views.single_words.gift_cards") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.coupon_type") %> </td>
+      <td> <%= f.select :coupon_type, coupon_types.collect {|ct| [ct[:text],ct[:value]]}, :include_blank => true %> </td>
+    </tr>
+    
+    <tr>
+      <td>  <%= f.label t("activerecord.attributes.coupon_applies"),t('views.forms.applies_to_item') %> </td>
+      <td> <%= f.text_field :coupon_applies, :class => "keyboardable"%> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.gift_card_amount") %> </td>
+      <td> <%= f.text_field :gift_card_amount, :class => 'keyboardable' %> </td>
+    </tr>
+    
+    
+    
+    
+
+    
+    <tr>
+      <td colspan="2">  
+        <hr />
+        <h2><%= t("menu.additional") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.height") %> </td>
+      <td> 
+        <%= f.text_field :height,:class => "keyboardable-int wide-left-kbd delimit-number", :size => 7 %>  
+        <%= f.select :height_metric, AppConfig.height_metrics.split(',').collect {|metric| [metric,metric]} %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.weight") %> </td>
+      <td> 
+        <%= f.text_field :weight,:class => "keyboardable-int wide-left-kbd delimit-number", :size => 7 %> 
+        <%= f.select :weight_metric, AppConfig.weight_metrics.split(',').collect {|metric| [metric,metric]} %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>  <%= f.label t("activerecord.attributes.length") %> </td>
+      <td> 
+        <%= f.text_field :length,:class => "keyboardable-int wide-left-kbd delimit-number", :size => 7 %> 
+        <%= f.select :length_metric, AppConfig.length_metrics.split(',').collect {|metric| [metric,metric]} %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.width") %> </td>
+      <td> 
+        <%= f.text_field :width,:class => "keyboardable-int wide-left-kbd delimit-number", :size => 7 %> 
+        <%= f.select :width_metric, AppConfig.width_metrics.split(',').collect {|metric| [metric,metric]} %> 
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.sales_metric") %> </td>
+      <td> <%= f.select :sales_metric, AppConfig.sales_metrics.split(',').collect {|metric| [metric,metric]} %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label Item.human_attribute_name(:manufacturer_price) %> </td>
+      <td> <%= f.text_field :manufacturer_price, :class => 'keyboardable' %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label Item.human_attribute_name(:customs_code) %> </td>
+      <td> <%= f.text_field :customs_code, :class => 'keyboardable' %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label Item.human_attribute_name(:origin_country) %> </td>
+      <td> <%= f.text_field :origin_country, :class => 'keyboardable' %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.track_expiry") %> </td>
+      <td> <%= f.check_box :track_expiry %> <br /> <br /> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.expires_on") %> </td>
+      <td> <%= f.date_select :expires_on, :order => [:day,:month,:year] %> </td>
+    </tr>
+    
+
+    
+    <tr>
+      <td colspan="2">  
+        <hr />
+        <h2><%= t("views.advanced_field").split(' ').first %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.weigh_compulsory") %> </td>
+      <td> <%= f.check_box :weigh_compulsory %> </td>
+    </tr>
+
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.must_change_price") %> </td>
+      <td> <%= f.check_box :must_change_price %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label I18n.t("activerecord.attributes.default_buyback") %> </td>
+      <td> <%= f.check_box :default_buyback%> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label "GS1" %>  </td>
+      <td> <%= f.check_box :is_gs1 %> </td>
+    </tr>
+
+    <tr>
+      <td>  <%= f.label I18n.t("activerecord.attributes.price_by_qty") %> </td>
+      <td> <%= f.check_box :price_by_qty %> </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label :gs1_format %>  </td>
+      <td> <%= f.text_field :gs1_format %> </td>
+    </tr>
+    
+    
+    
+    
+    
+    
+    
+    <tr>
+      <td colspan="2"> 
+        <hr />
+        <h2><%= t("views.forms.parts") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td> <%= f.label t("activerecord.attributes.calculate_part_price") %>  </td>
+      <td> <%= f.check_box :calculate_part_price %> </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2">  
+        <table width="99%" align="right">
+          <tr>
+            <td width="50%" align="left">
+              <%= salor_icon(:add,{ :onclick => "addPart();"},32) %>
+            </td>
+            <td class="parts-options" align="right">
+            </td>
+          </tr>
+        </table>
+        <script type="text/javascript">
+        function addPart() {
+          var elem = $("<div class='part'></div>");
+          var inp_id = 'inp-'+Math.floor(Math.random() * 1000);
+          elem.append($('<%= label_tag I18n.t("activerecord.attributes.sku") %><br />'));
+          var inp = shared.element('input',{id: inp_id,type: "text", name: "part_skus[][sku]", klass: "text-input keyboardable part-input"},'',elem);
+          elem.append('<br />');
+          var qinp_id = 'qinp-'+Math.floor(Math.random() * 1000);
+          elem.append($('<%= label_tag I18n.t("activerecord.attributes.part_quantity") %> <br />'));
+          var inp = shared.element('input',{id: qinp_id,type: "text", name: "part_skus[][part_quantity]", klass: "text-input keyboardable part-input"},'',elem);
+          elem.append('<br />');
+          var del = $('<div align="center" style="padding-top: 10px;"><%= image_tag "/images/icons/" + icon(:delete,16) %></div>');
+          del.click(function () {
+              $(this).parent().remove();
+          });
+          elem.append(del);
+          $("#parts_target").append(elem);
+          
+          sr.fn.onscreen_keyboard.make($('#' + inp_id).removeClass('keyboardable-done'));
+          sr.fn.onscreen_keyboard.make($('#' + qinp_id).removeClass('keyboardable-done'));
+        }
+        </script>
+        <div id="parts_target" class="parts">
+          <% if @item.parts.any?  %>
+            <% @item.parts.each do |part|  %>
+              <div id="part-<%= part.id %>" class="part">
+                <%= label_tag I18n.t("activerecord.attributes.sku") %> <br />
+                <%= text_field_tag "part_skus[][sku]", part.sku, :class => 'keyboardable' %><br />
+                <%= label_tag I18n.t("activerecord.attributes.part_quantity") %> <br />
+                <%= text_field_tag "part_skus[][part_quantity]", part.part_quantity, :class => 'keyboardable-int delimit-number' %><br />
+                <div id="" class="" align="right" style="padding-top: 10px;">
+                  <%= image_tag("/images/icons/" + icon(:delete,16), :onclick => "$('#part-#{part.id}').remove();") %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    
+
+    
+
+    
+    <tr>
+      <td colspan="2"> 
+        <hr />
+        <h2><%= t("activerecord.models.action.other") + ' & ' + t("activerecord.models.discount.other") %></h2>
+      </td>
+    </tr>
+    
+    <tr>
+      <td colspan="2"> 
+        <table width="90%" align="center">
+          <% if @item.actions.any?  %>    
+              <tr>
+              <td colspan="6"> <h3> <%= I18n.t("activerecord.models.action.other") %></h3> <hr />  </td>
+            </tr>
+            <% @item.actions.visible.each do |action| %> 
+              <tr >
+                <td width="40%"> <%= link_to action.name, edit_action_path(action) %> </td>
+                <td>
+                  <%=I18n.t("when_list.#{Action.when_list.find {|w| action.whento.to_sym == w}}") if not action.whento.nil? %>
+                </td>
+                <td>
+                  <%= I18n.t("behavior_list.#{Action.behavior_list.find {|b| b == action.behavior.to_sym }}") if not action.behavior.nil?  %>
+                </td>
+                <td>
+                  <%= action.value %>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <div>
+                  <%= link_to salor_icon(:delete,{},16), action,:confirm => 'Are you sure?', :method => :delete %>
+                </div>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </td>
+    </tr>
+    
+
+    
+
+    
+    
+    
+  </table>
+  <% end %>
+</div>
+
+

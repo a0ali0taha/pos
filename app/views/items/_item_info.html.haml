@@ -1,0 +1,25 @@
+.info
+  %h2=I18n.t("activerecord.models.item.one") + " SKU: " + @item.sku + " ID: " + @item.id.to_s
+  %hr
+  .fieldset
+    .square-button= link_to t("views.single_words.edit"),"/items/#{@item.id}/edit"
+    %table
+      %tr
+        %td= label_tag(I18n.t("activerecord.attributes.base_price"))
+        %td= humanized_money_with_symbol @item.price
+      %tr
+        %td=label_tag(I18n.t("activerecord.models.location.one"))
+        %td=@item.location.name if @item.location
+      %tr
+        %td=label_tag(I18n.t("activerecord.models.category.one"))
+        %td=@item.category.name if @item.category
+      %tr
+        %td=label_tag(I18n.t("activerecord.attributes.quantity"))
+        %td=@item.quantity
+      %tr
+        %td=label_tag(I18n.t("activerecord.attributes.quantity_sold"))
+        %td=@item.quantity_sold
+  %h2=I18n.t("activerecord.models.shipper.other")
+  %hr
+  - @item.item_shippers.each do |item_shipper|
+    = render :partial => "item_shipper_info", :locals => { :item_shipper => item_shipper }

@@ -1,0 +1,43 @@
+= form_for(@plugin, :html => { :multipart => true}) do |f|
+  %table{ :width => "80%", :align => "center"} 
+    - if @plugin.errors.any? 
+      %tr
+        %td{:colspan => 2}
+          #error_explanation
+            %h2= I18n.t("activerecord.errors.template.header.other", :count => @plugin.errors.count,:model => t("activerecord.models.plugin.one"))
+            - @plugin.errors.full_messages.each do |msg|
+              %p msg
+
+    %tr
+      %td= f.label :filename
+      %td= f.file_field :filename
+    - fields = @current_plugin_manager.get_meta_fields_for(@plugin)
+    - if fields.any? then
+      %tr
+        %td{ :colspan=>2}
+          .content-box
+            .title-container
+              .title-box.shadow=I18n.t("plugins.meta_fields")
+      - fields.each do |k,v|
+        %tr
+          %td
+            %label=v[:name].titleize
+          %td
+            - if v[:type] == 'yesorno' then
+              %select{:name=> "plugin[meta][" + v[:name] + "]", :id => "plugin_#{v[:name]}"}
+                %option{:value=>'yes'} Yes
+                %option{:value=>'no'} No
+            - else
+              %input{ :type=> v[:type], :size => v[:size], :name=> "plugin[meta][" + v[:name] + "]", :value => (@plugin.meta ? @plugin.meta[v[:name]] : '') }
+    - if @plugin.files and @plugin.files.any?
+      %tr
+        %td{ :colspan=>2}
+          .content-box
+            .title-container
+              .title-box.shadow=I18n.t("plugins.files_list")
+      - @plugin.files.each do |f|
+        %tr
+          %td{:colspan=>2}=f
+    %tr
+      %td{ :colspan => 2, :align => :right }= f.submit
+    

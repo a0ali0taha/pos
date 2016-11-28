@@ -1,0 +1,25 @@
+= stylesheet_link_tag 'invoice_default'
+= stylesheet_link_tag 'timepicker'
+= stylesheet_link_tag 'invoice_default_print', :media => 'print'
+=javascript_include_tag 'timepicker'
+
+= raw content_box_top(t("views.users"))
+
+.tools
+  %span{ :onmousedown => 'sr.fn.salor_bin.showPrintDialog();' }= salor_icon(:a4print, {}, 32, t('orders.print.print'))
+  %br
+  = form_tag "/users/#{@user.id}", :method => :get do
+    = label 'from', t('vendors.report_day.from')
+    = select_date(@from, :prefix => 'from', :order => [:day,:month,:year])
+    %br
+    = label 'to', t('vendors.report_day.to')
+    = select_date(@to, :prefix => 'to', :order => [:day,:month,:year])
+    %br
+    %br
+    = submit_tag t('helpers.submit.ok'), :onclick => '$("#progress").show()'
+.clear
+
+.paper-invoice.invoice_print
+  = render :partial => "details"
+  = render :partial => "time_sheet"
+  = render :partial => "drawer_transactions"

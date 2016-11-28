@@ -1,0 +1,243 @@
+= stylesheet_link_tag 'invoice_default'
+= stylesheet_link_tag 'invoice_default_print', :media => 'print'
+
+- categories = @report['categories']
+- taxes = @report['taxes']
+- paymentmethods = @report['paymentmethods']
+- paymentmethods_total = @report['paymentmethods_total']
+- proforma_pmis = @report['proforma_pmis']
+- proforma_pmis_total = @report['proforma_pmis_total']
+- gift_cards_redeemed = @report['gift_cards_redeemed']
+- gift_card_redeem_total = @report['gift_card_redeem_total']
+- gift_cards_sold = @report['gift_cards_sold']
+- gift_card_sales_total = @report['gift_card_sales_total']
+- refund_order_items  =  @report['refund_order_items']
+- aconto_order_items  =  @report['aconto_order_items']
+- aconto_total  =  @report['aconto_total']
+- revenue =   @report['revenue']
+- transactions   = @report['transactions']
+- transactions_sum   = @report['transactions_sum']
+- calculated_drawer_amount =   @report['calculated_drawer_amount']
+- categories_sum = @report['categories_sum']
+
+= raw content_box_top(t("vendors.report_day.title"))
+
+
+= form_tag "/vendors/report_day", :class => 'no-print', :id => 'date_range', :method => :get do
+  %table.tools{ :width => '70%' }
+    %tr
+      %td{:align => :left, :width => "20%"}
+        = label 'from', t('.from')
+      %td{:align => :right}
+        = select_date(@from, :prefix => 'from', :order => [:day,:month,:year])
+    %tr
+      %td{:align => :left}
+        = label 'to', t('.to')
+      %td{:align => :right}
+        = select_date(@to, :prefix => 'to', :order => [:day,:month,:year])
+    %tr
+      %td{:align => :left}
+        = label 'user_select', User.model_name.human
+      %td{:align => :right}
+        %select{:id => 'user_select', :name => 'user_id' }
+          %option
+          = options_from_collection_for_select(@users, 'id', 'username', params[:user_id])
+    %tr
+      %td
+      %td{ :align => :right}
+        = submit_tag t('orders.report.display'), :onclick => '$("#progress").show()', :id => 'display_report_day'
+    %tr
+      %td{:colspan => 2, :align => :center}
+        = salor_icon(:a4print, {:onclick => 'sr.fn.salor_bin.showPrintDialog()'}, 40, t('menu.print_dialog'))
+        = salor_icon(:thermal_printer, {:onclick => "sr.fn.salor_bin.printUrl(sr.data.session.cash_register.thermal_printer,'/vendors/render_report_day',decodeURIComponent($('#date_range').serialize()));" }, 40, t('.thermal'))
+    %tr
+      %td{:colspan => 2, :align => :center}= image_tag 'loader.gif', :id => 'progress', :style => 'display: none;'
+
+.clear
+
+.paper-invoice
+  %h2== #{ t '.title' }: #{ l @from, :format => :just_day } - #{ l @to, :format => :just_day } | #{ @current_vendor.name } | #{ @user.name_with_username if @user }
+  
+  %p
+    = l DateTime.now
+    |
+    == #{ t '.count_orders' }: #{ @report['count_orders'] }
+    |
+    == #{ t '.count_order_items' }: #{ @report['count_order_items'] }
+    |
+    = request.ip
+    |
+    = @current_user.username
+    |
+    = @current_register.name
+
+
+  - [[:pos,'.sales'], [:neg,'.payments']].each do |i|
+    - next if categories[i[0]].to_a.size.zero?
+    %h3= t i[1]
+
+    %table.striped-table2
+      %tr
+        %th.left{:style => 'width:50%'}= t '.sums_by_category'
+        %th.right= t '.gross'
+        %th.right= t '.net'
+        %th.right= t '.tax'
+      - categories[i[0]].to_a.each do |c|
+        %tr
+          %td.left= c[0].blank? ? t('printr.eod_report.no_category') : c[0]
+          %td.right= humanized_money_with_symbol c[1][:gro]
+          %td.right= humanized_money_with_symbol c[1][:net]
+          %td.right= humanized_money_with_symbol c[1][:gro] - c[1][:net]
+
+    %table.striped-table2
+      %tr
+        %th.left{:style => 'width:50%'}= t '.sums_by_tax_profile'
+        %th.right= t '.gross'
+        %th.right= t '.net'
+        %th.right= t '.tax'
+      - taxes[i[0]].to_a.each do |t|
+        %tr
+          %td.left= number_to_percentage t[0]
+          %td.right= humanized_money_with_symbol t[1][:gro]
+          %td.right= humanized_money_with_symbol t[1][:net]
+          %td.right= humanized_money_with_symbol t[1][:gro] - t[1][:net]
+
+
+  %h3= t '.revenue'
+  .right
+    %p
+      == #{ t '.gross' }:
+      %b== #{ humanized_money_with_symbol revenue[:gro] }
+    %p
+      == #{ t '.net' }:
+      %b== #{ humanized_money_with_symbol revenue[:net] }
+  
+  %h3= t('activerecord.models.payment_method.other')
+  %table.striped-table2
+    %tr
+      %th.left &nbsp;
+      %th.right
+    - paymentmethods.each do |k,v|
+      %tr
+        %td.left= v[:name]
+        %td.right{ :style => 'width:20%' }= humanized_money_with_symbol v[:amount]
+    - aconto_order_items.each do |k,v|
+      %tr
+        %td.left
+          = t('.as_aconto_from')
+          = link_to(v[:order_blurb], "/orders/#{ v[:order_id] }/print")
+        %td.right{ :style => 'width:20%' }= humanized_money_with_symbol v[:amount]
+      
+  - if gift_cards_redeemed.any?
+    %table.striped-table2
+      %tr
+        %th.left= t '.gift_card_redeem_total'
+        %th
+        %th.right
+      - gift_cards_redeemed.each do |gc|
+        %tr
+          %td.left
+            = link_to(gc.sku, edit_item_path(gc.item))
+          %td= link_to("#{ t('orders.print.invoice') } ##{ gc.order.nr } #{ I18n.l(gc.order.paid_at, :format => :date_short) }", "/orders/#{ gc.order_id }/print")
+          %td.right{ :style => 'width:20%' }= humanized_money_with_symbol(-gc.total)
+      %tr.total
+        %td.right{:colspan => 3}= humanized_money_with_symbol gift_card_redeem_total
+          
+  .right
+    %p
+      == #{ t '.sum' }:
+      %b= humanized_money_with_symbol(paymentmethods_total + aconto_total + gift_card_redeem_total )
+      
+  - if gift_cards_sold.any?
+    %table.striped-table2
+      %tr
+        %th.left= t '.gift_card_sales_total'
+        %th
+        %th.right
+      - gift_cards_sold.each do |gc|
+        %tr
+          %td.left
+            = link_to(gc.sku, edit_item_path(gc.item))
+          %td= link_to("#{ t('orders.print.invoice') } ##{ gc.order.nr } #{ I18n.l(gc.order.paid_at, :format => :date_short) }", "/orders/#{ gc.order_id }/print")
+          %td.right= humanized_money_with_symbol gc.total
+      %tr.total
+        %td.right{:colspan => 3}= humanized_money_with_symbol gift_card_sales_total
+      
+      
+      
+      
+  
+  - if proforma_pmis.any?
+    %h3= t '.proforma_payments'
+    %table.striped-table2
+      %tr
+        %th.left &nbsp;
+        %th.right
+      - proforma_pmis.each do |k,v|
+        %tr
+          %td.left= v[:name]
+          %td.right= humanized_money_with_symbol v[:amount]
+    .right
+      %p
+        = t('.proforma_pmis_total')
+        %b= humanized_money_with_symbol proforma_pmis_total
+      %p
+        = t('.open_contracts')
+        %b= humanized_money_with_symbol proforma_pmis_total - aconto_total
+
+          
+
+      
+      
+
+
+
+  - if refund_order_items.any?
+    %h3= t '.refunds'
+    %table.striped-table2
+      %tr
+        %th.left &nbsp;
+        %th.left
+        %td.left
+      - refund_order_items.each do |k,v|
+        %tr
+          %td.left= v[:blurb]
+          %td.left= link_to(v[:order_blurb], "/orders/#{ v[:order_id] }/print")
+          %td.left= v[:pmi_blurb]
+
+          
+  - if transactions.any?
+    %h3= t '.transactions'
+    %table.striped-table2
+      %tr
+        %th.left
+        %th.left= t '.notes'
+        %th.left= t '.time'
+        %th.right= t '.drop'
+        %th.right= t '.payout'
+      - transactions.each do |d|
+        %tr
+          %td.left= d[:tag]
+          %td.left{:style => 'width:40%'}= d[:notes]
+          %td.left= d[:time].strftime('%d. %b %H:%M')
+          %td.right= humanized_money_with_symbol d[:amount] if d[:amount].fractional > 0
+          %td.right= humanized_money_with_symbol d[:amount] if d[:amount].fractional < 0
+    .right
+      %p
+        == #{ t '.sum' }:
+        %b== #{ humanized_money_with_symbol transactions_sum }
+
+  %h3= t '.cash_drawer'
+  .right
+    - if @from.beginning_of_day == Time.now.beginning_of_day and @user # today and user
+      %p
+        == #{ I18n.t("printr.eod_report.system_drawer_amount") }:
+        %b== #{ humanized_money_with_symbol @user.get_drawer.amount }
+
+    %p
+      == #{ I18n.t("printr.eod_report.calculated_drawer_amount") }:
+      %b== #{ humanized_money_with_symbol calculated_drawer_amount }
+      
+    - unless calculated_drawer_amount.zero?
+      %p
+        %b= t 'printr.eod_report.warning_drawer_amount_not_zero'

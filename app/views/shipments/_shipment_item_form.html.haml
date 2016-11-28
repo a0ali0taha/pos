@@ -1,0 +1,24 @@
+:javascript
+  $(function() {
+    sr.data.shipments.shipment_items = #{ raw Shipment.shipment_items_to_json(@shipment_items) };
+    sr.data.shipments.shipment = #{ raw @shipment.to_json };
+    sr.fn.shipments.updateLineItems();
+    sr.fn.shipments.updateShipment();
+
+    $('#main_shipment_sku_field').keydown(function(e) {
+      if (e.which == 13) {
+        sr.fn.shipments.submitLineItem($('#main_shipment_sku_field').val());
+        $('#main_shipment_sku_field').val('');
+        return false;
+      }
+    });
+  sr.fn.onscreen_keyboard.make($('#main_shipment_sku_field'));
+
+  });
+
+#pos_order_total.pos-order-total
+%input#main_shipment_sku_field
+
+  
+  
+#shipment_items_container

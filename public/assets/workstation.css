@@ -1,0 +1,4683 @@
+/* Pos Keyboard Sizing */
+/* line 89, ../../app/assets/stylesheets/workstation.sass */
+h1, h2, h3, label, div.breadcrumb-container, div.list {
+  text-transform: uppercase;
+}
+
+/* Mixins */
+/* line 113, ../../app/assets/stylesheets/workstation.sass */
+.rounded-corners-all {
+  border-radius: 8px;
+}
+
+/* line 155, ../../app/assets/stylesheets/workstation.sass */
+.rounded-corners-right {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* line 201, ../../app/assets/stylesheets/workstation.sass */
+.raised-element {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* line 250, ../../app/assets/stylesheets/workstation.sass */
+.salor-dialog {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+}
+
+/* generic */
+/* line 254, ../../app/assets/stylesheets/workstation.sass */
+a {
+  text-decoration: none;
+}
+
+/* Non Specific */
+/* line 259, ../../app/assets/stylesheets/workstation.sass */
+form {
+  text-align: left;
+}
+
+/* line 262, ../../app/assets/stylesheets/workstation.sass */
+table {
+  margin: 0px auto;
+}
+
+/* line 265, ../../app/assets/stylesheets/workstation.sass */
+th.left,
+td.left {
+  text-align: left;
+}
+
+/* line 269, ../../app/assets/stylesheets/workstation.sass */
+div.clear {
+  clear: both;
+}
+
+/* line 272, ../../app/assets/stylesheets/workstation.sass */
+div.form_image {
+  position: absolute;
+  right: 0px;
+  top: 200px;
+  background-color: #0e1d25;
+}
+
+/* line 278, ../../app/assets/stylesheets/workstation.sass */
+.align-left {
+  text-align: left;
+}
+
+/* line 281, ../../app/assets/stylesheets/workstation.sass */
+.pointer {
+  cursor: pointer;
+}
+
+/* line 284, ../../app/assets/stylesheets/workstation.sass */
+.striped-table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  background-color: white;
+  padding-bottom: 10px;
+  width: 98%;
+}
+
+/* line 292, ../../app/assets/stylesheets/workstation.sass */
+.striped-table tr {
+  border-bottom: 3px solid black;
+}
+
+/* line 296, ../../app/assets/stylesheets/workstation.sass */
+.striped-table td {
+  color: black;
+  text-align: left;
+}
+
+/* line 301, ../../app/assets/stylesheets/workstation.sass */
+.striped-table {
+  text-align: center;
+}
+
+/* line 305, ../../app/assets/stylesheets/workstation.sass */
+.striped-table td:first-child {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 312, ../../app/assets/stylesheets/workstation.sass */
+.table-center {
+  text-align: center;
+}
+
+/* line 316, ../../app/assets/stylesheets/workstation.sass */
+.table-right {
+  text-align: right;
+}
+
+/* line 320, ../../app/assets/stylesheets/workstation.sass */
+table.indent {
+  margin-left: 10px;
+}
+
+/* line 324, ../../app/assets/stylesheets/workstation.sass */
+.upsidedown {
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 331, ../../app/assets/stylesheets/workstation.sass */
+div.image-button {
+  cursor: pointer;
+}
+
+/* line 335, ../../app/assets/stylesheets/workstation.sass */
+div.table > div.table-row > div.table-cell {
+  width: 200px;
+  padding: 5px;
+}
+
+/* line 339, ../../app/assets/stylesheets/workstation.sass */
+.tr, .table-row {
+  display: table-row;
+}
+
+/* line 342, ../../app/assets/stylesheets/workstation.sass */
+.jtable-cell {
+  display: table-cell;
+  padding-right: 10px;
+}
+
+/* line 346, ../../app/assets/stylesheets/workstation.sass */
+.table-cell {
+  display: inline-block;
+  text-align: left;
+  margin: 2px 2px;
+  height: 45px;
+  text-align: center;
+  padding: 4px 0px 6px 0px;
+  vertical-align: top;
+}
+
+/* line 355, ../../app/assets/stylesheets/workstation.sass */
+td.table-cell {
+  display: table-cell;
+  width: 80px;
+  height: 30px;
+}
+
+/* line 361, ../../app/assets/stylesheets/workstation.sass */
+div.shipment_items div.table-cell {
+  width: 200px;
+}
+
+/* line 365, ../../app/assets/stylesheets/workstation.sass */
+div.table-cell.name,
+div.table-cell.sku {
+  width: 210px;
+}
+
+/* line 370, ../../app/assets/stylesheets/workstation.sass */
+div.table-cell.price {
+  width: 120px;
+}
+
+/* line 374, ../../app/assets/stylesheets/workstation.sass */
+div.table-cell.btn {
+  padding-right: 20px;
+}
+
+/* line 378, ../../app/assets/stylesheets/workstation.sass */
+.table {
+  display: table;
+}
+
+/* line 380, ../../app/assets/stylesheets/workstation.sass */
+.thead {
+  display: table-header-group;
+}
+
+/* line 382, ../../app/assets/stylesheets/workstation.sass */
+.tbody {
+  display: table-row-group;
+}
+
+/* line 384, ../../app/assets/stylesheets/workstation.sass */
+.tfoot {
+  display: table-footer-group;
+}
+
+/* line 386, ../../app/assets/stylesheets/workstation.sass */
+.col {
+  display: table-column;
+}
+
+/* line 388, ../../app/assets/stylesheets/workstation.sass */
+.colgroup {
+  display: table-column-group;
+}
+
+/* line 390, ../../app/assets/stylesheets/workstation.sass */
+.caption {
+  display: table-caption;
+}
+
+/* line 393, ../../app/assets/stylesheets/workstation.sass */
+#messages {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 200;
+  display: inline-block;
+  font-size: 200%;
+  color: white;
+}
+/* line 401, ../../app/assets/stylesheets/workstation.sass */
+#messages div.statusmessage {
+  text-align: right;
+  padding: 0px 0px 0px 0px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+/* line 405, ../../app/assets/stylesheets/workstation.sass */
+#messages span {
+  padding: 5px 10px;
+}
+/* line 407, ../../app/assets/stylesheets/workstation.sass */
+#messages div.message_notice {
+  background-color: green;
+}
+/* line 409, ../../app/assets/stylesheets/workstation.sass */
+#messages div.message_alert {
+  background-color: red;
+}
+
+/* line 412, ../../app/assets/stylesheets/workstation.sass */
+.hidden {
+  display: none;
+}
+
+/* line 415, ../../app/assets/stylesheets/workstation.sass */
+.shadow {
+  box-shadow: -2px 2px 1px #0e1d25;
+  box-shadow: -2px 2px 1px #0e1d25;
+}
+
+/* line 419, ../../app/assets/stylesheets/workstation.sass */
+.kbd-show {
+  display: inline-block;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 15px;
+  vertical-align: bottom;
+}
+
+/* line 429, ../../app/assets/stylesheets/workstation.sass */
+div.field_with_errors {
+  border: 2px solid red;
+}
+
+/* line 432, ../../app/assets/stylesheets/workstation.sass */
+div.main_sku {
+  text-align: center;
+}
+/* line 434, ../../app/assets/stylesheets/workstation.sass */
+div.main_sku div.kbd-show {
+  float: right;
+}
+
+/* line 437, ../../app/assets/stylesheets/workstation.sass */
+.kbd-show-left {
+  float: left;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  padding: 3px;
+  border-radius: 3px;
+  width: 20px;
+  text-align: center;
+}
+
+/* line 448, ../../app/assets/stylesheets/workstation.sass */
+.even {
+  background-color: #3a474d;
+}
+
+/* line 451, ../../app/assets/stylesheets/workstation.sass */
+.odd {
+  background-color: #4d565a;
+}
+
+/* line 454, ../../app/assets/stylesheets/workstation.sass */
+tr.recursive {
+  background-color: #615443;
+}
+
+/* Form Styling */
+/* line 458, ../../app/assets/stylesheets/workstation.sass */
+.stylish-text {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+}
+
+/* line 461, ../../app/assets/stylesheets/workstation.sass */
+input, .keyboardable, .keyboardable-disabled {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  width: 200px;
+}
+
+/* line 466, ../../app/assets/stylesheets/workstation.sass */
+textarea {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+}
+
+/* line 469, ../../app/assets/stylesheets/workstation.sass */
+table#notes_table {
+  font-size: 12px;
+  text-transform: none;
+}
+
+/* line 473, ../../app/assets/stylesheets/workstation.sass */
+input[type="submit"] {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+}
+
+/* line 476, ../../app/assets/stylesheets/workstation.sass */
+.keyboardable-int {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  width: 120px;
+}
+
+/* line 481, ../../app/assets/stylesheets/workstation.sass */
+textarea.keyboardable {
+  width: 75%;
+}
+
+/* line 484, ../../app/assets/stylesheets/workstation.sass */
+#customer_loyalty_card_attributes_sku {
+  width: 250px;
+}
+
+/* line 487, ../../app/assets/stylesheets/workstation.sass */
+div.actions {
+  clear: both;
+}
+
+/* line 490, ../../app/assets/stylesheets/workstation.sass */
+div.actions input[type=submit],
+div.content-container-shipments-show button {
+  border: none;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 3px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 499, ../../app/assets/stylesheets/workstation.sass */
+div.general-form {
+  color: #0e1d25;
+  margin-bottom: 5px;
+}
+
+/* line 503, ../../app/assets/stylesheets/workstation.sass */
+div.general-form > div.tab-container {
+  clear: both;
+  background-color: #5b7682;
+}
+
+/* line 507, ../../app/assets/stylesheets/workstation.sass */
+div.general-form > div.form-menu > div.link {
+  float: left;
+  width: 100px;
+  height: 40px;
+  margin-right: 5px;
+  padding-top: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-transform: uppercase;
+}
+
+/* line 518, ../../app/assets/stylesheets/workstation.sass */
+div.general-form > div.form-menu > div {
+  float: left;
+  width: 150px;
+  background-color: #7e868a;
+  color: white;
+  margin-right: 5px;
+}
+
+/* line 525, ../../app/assets/stylesheets/workstation.sass */
+div.general-form > div.form-menu > div.active {
+  background-color: #5b7682;
+  color: #0e1d25;
+}
+
+/* line 529, ../../app/assets/stylesheets/workstation.sass */
+div.form-container {
+  overflow: auto;
+  padding: 5px;
+  min-height: 150px;
+}
+
+/* line 538, ../../app/assets/stylesheets/workstation.sass */
+div.form-container * input[type=text],
+div.form-container * input[type=password],
+div.form-container * input.attribute-input {
+  border-radius: 8px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  background-color: #0e1d25;
+  color: white;
+  width: 150px;
+}
+
+/* line 547, ../../app/assets/stylesheets/workstation.sass */
+div.form-container * input.part-input {
+  width: 70px;
+}
+
+/* line 550, ../../app/assets/stylesheets/workstation.sass */
+div.form-container * input.batch-input {
+  width: 100px;
+}
+
+/* line 553, ../../app/assets/stylesheets/workstation.sass */
+div.form-container * input[type=text],
+div.form-container * textarea {
+  background-color: #0e1d25;
+  color: white;
+}
+
+/* line 557, ../../app/assets/stylesheets/workstation.sass */
+#cash-drop-notes-id {
+  background-color: #0e1d25;
+  color: white;
+  width: 90%;
+}
+
+/* line 562, ../../app/assets/stylesheets/workstation.sass */
+div.form-container h2 {
+  color: #0e1d25;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+/* line 567, ../../app/assets/stylesheets/workstation.sass */
+div.vendor_printer {
+  width: 250px;
+}
+
+/* line 572, ../../app/assets/stylesheets/workstation.sass */
+div.metric-input {
+  float: left;
+}
+
+/* line 575, ../../app/assets/stylesheets/workstation.sass */
+.parts-options div {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 579, ../../app/assets/stylesheets/workstation.sass */
+div.part, div.batch {
+  width: 180px;
+  float: left;
+}
+
+/* line 583, ../../app/assets/stylesheets/workstation.sass */
+body {
+  font-size: 12.5px;
+  color: white;
+  background-color: #0e1d25;
+  padding: 0px;
+  margin: 0px;
+  font-family: Ubuntu-R;
+  letter-spacing: 1.5px;
+}
+
+/* line 594, ../../app/assets/stylesheets/workstation.sass */
+div.salor-icon {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  letter-spacing: 0.8px;
+}
+/* line 600, ../../app/assets/stylesheets/workstation.sass */
+div.salor-icon span.icon-caption {
+  font-size: 65%;
+  text-transform: uppercase;
+  position: relative;
+  bottom: 7px;
+}
+
+/* line 608, ../../app/assets/stylesheets/workstation.sass */
+div.tool-icon {
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+}
+/* line 612, ../../app/assets/stylesheets/workstation.sass */
+div.tool-icon span {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 617, ../../app/assets/stylesheets/workstation.sass */
+img {
+  border: none;
+}
+
+/* line 620, ../../app/assets/stylesheets/workstation.sass */
+a {
+  color: white;
+}
+
+/* line 623, ../../app/assets/stylesheets/workstation.sass */
+span.link, a {
+  color: white;
+}
+
+/* The Header */
+/* line 630, ../../app/assets/stylesheets/workstation.sass */
+div.header {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #3a474d;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 61px;
+  padding: 5px 0px -3px 0px;
+  margin-bottom: 3px;
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+/* line 640, ../../app/assets/stylesheets/workstation.sass */
+div.header div.salor-icon {
+  padding: 5px;
+}
+/* line 642, ../../app/assets/stylesheets/workstation.sass */
+div.header div.salor-icon span.icon-caption {
+  position: relative;
+  bottom: 7px;
+}
+/* line 645, ../../app/assets/stylesheets/workstation.sass */
+div.header div#header_drawer_amount {
+  margin: -16px 0px 0px 0px;
+  font-weight: bold;
+  font-size: 90%;
+  width: 65px;
+  text-align: center;
+  text-shadow: white 0px 0px 5px;
+  color: #ffff55;
+}
+/* line 653, ../../app/assets/stylesheets/workstation.sass */
+div.header ul {
+  list-style: none;
+  display: inline-block;
+  margin: 0px 0px 0px -20px;
+}
+/* line 658, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li {
+  margin-right: 2px;
+  width: 75px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 664, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li div {
+  padding-top: 5px;
+  cursor: pointer;
+  active-background-color: #243239;
+}
+/* line 670, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li a img {
+  border: none;
+}
+/* line 673, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li div.active {
+  padding-top: 5px;
+  width: 65px;
+  height: 56px;
+  cursor: pointer;
+  background-color: #0e1d25;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+/* line 681, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li div.first {
+  background-color: #0e1d25;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 56px;
+  font-size: 60%;
+}
+/* line 688, ../../app/assets/stylesheets/workstation.sass */
+div.header ul li div.first a img {
+  margin-left: 4px;
+  margin-top: -7px;
+}
+
+/* line 693, ../../app/assets/stylesheets/workstation.sass */
+div.close-window {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+  border-radius: 8px;
+  position: fixed;
+  right: 0px;
+  bottom: 8px;
+  padding: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 705, ../../app/assets/stylesheets/workstation.sass */
+a.reload-window {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+  border-radius: 8px;
+  position: fixed;
+  left: 0px;
+  bottom: 8px;
+  padding: 18px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 718, ../../app/assets/stylesheets/workstation.sass */
+div.header #clockbox span {
+  font-weight: bold;
+  font-size: 140%;
+}
+
+/* line 722, ../../app/assets/stylesheets/workstation.sass */
+div.generic-search {
+  display: inline-block;
+  padding: 10px 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 160px;
+}
+
+/* line 729, ../../app/assets/stylesheets/workstation.sass */
+input.generic-search-input-wide {
+  width: 400px;
+}
+
+/* line 732, ../../app/assets/stylesheets/workstation.sass */
+div.generic-search-button {
+  background: url(/images/icons/okay.svg) no-repeat;
+  background-size: 28px;
+  width: 32px;
+  height: 32px;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* line 743, ../../app/assets/stylesheets/workstation.sass */
+input#generic_search_input {
+  width: 65%;
+}
+
+/* line 746, ../../app/assets/stylesheets/workstation.sass */
+span.version {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  font-size: 70%;
+  width: 50%;
+}
+
+/* line 753, ../../app/assets/stylesheets/workstation.sass */
+span.salorbinversion {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  font-size: 70%;
+  width: 50%;
+  text-align: right;
+}
+
+/* Main and Main Content Divs */
+/* line 764, ../../app/assets/stylesheets/workstation.sass */
+div.main {
+  margin: 20px 0px 250px 0px;
+}
+
+/* line 768, ../../app/assets/stylesheets/workstation.sass */
+div.button-row-admin {
+  background-color: #0e1d25;
+  float: right;
+  height: 24px;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding-top: 3px;
+  position: relative;
+  top: -8px;
+}
+
+/* line 778, ../../app/assets/stylesheets/workstation.sass */
+div.button-row-admin > div.spacer {
+  background-color: #cc5757;
+  border-radius: 8px;
+  float: left;
+  height: 21px;
+  margin-top: -3px;
+}
+
+/* line 785, ../../app/assets/stylesheets/workstation.sass */
+div.button-row-admin > div.button-admin {
+  background-color: #ff8484;
+  border-radius: 8px;
+  color: #280d2e;
+  cursor: pointer;
+  float: left;
+  font-weight: normal;
+  height: 24px;
+  margin-left: 5px;
+  margin-top: -3px;
+  padding: 3px 10px 0;
+}
+
+/* line 799, ../../app/assets/stylesheets/workstation.sass */
+div.content-box div.title-container {
+  margin: 15px auto;
+  position: relative;
+  text-align: center;
+  font-size: 150%;
+  height: 40px;
+}
+
+/* line 807, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.back-button,
+div.content-box > div.title-container > div.back-button-admin,
+div.content-box > div.title-container > div.left-blank {
+  width: 7%;
+  height: 32px;
+  float: left;
+  margin-right: 5px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 140%;
+  color: #0e1d25;
+  background-color: #5b7682;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  cursor: pointer;
+}
+
+/* line 824, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.reload-button,
+div.content-box > div.title-container > div.reload-button-admin,
+div.content-box > div.title-container > div.right-blank {
+  width: 6%;
+  height: 32px;
+  float: right;
+  margin-left: 5px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  color: #0e1d25;
+  background-color: #5b7682;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  cursor: pointer;
+}
+
+/* line 840, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.back-button,
+div.content-box > div.title-container > div.reload-button {
+  padding: 5px;
+}
+
+/* line 843, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.back-button-admin {
+  height: 64px;
+}
+
+/* line 846, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.reload-button-admin {
+  height: 64px;
+  position: relative;
+  top: -32px;
+}
+
+/* line 851, ../../app/assets/stylesheets/workstation.sass */
+div.content-box * div.breadcrumb-container {
+  font-size: 12.5px;
+  clear: both;
+  padding: 10px 0px;
+  background-color: none;
+}
+
+/* line 857, ../../app/assets/stylesheets/workstation.sass */
+div.content-box * div.breadcrumb-container > a {
+  text-decoration: underline;
+}
+
+/* line 860, ../../app/assets/stylesheets/workstation.sass */
+div.content-box * div.box-title {
+  font-size: 140%;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* line 865, ../../app/assets/stylesheets/workstation.sass */
+.div.content-box * div.small-title {
+  font-size: 12.5px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* line 870, ../../app/assets/stylesheets/workstation.sass */
+div.content-box * div.title-menu {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  font-size: 140%;
+}
+
+/* line 876, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.content-container {
+  padding-left: 50px;
+  clear: both;
+}
+
+/* line 882, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.title-box {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  height: 29px;
+  padding: 7px;
+  display: inline-block;
+  width: 75%;
+  background-color: #3a474d;
+  text-transform: uppercase;
+}
+
+/* line 891, ../../app/assets/stylesheets/workstation.sass */
+div.content-box > div.title-container > div.title-box-admin {
+  background-color: #cc5757;
+  float: left;
+  font-weight: bold;
+  height: 24px;
+  margin-top: 5px;
+  padding-top: 3px;
+  width: 84%;
+}
+
+/* The ul.list */
+/* line 902, ../../app/assets/stylesheets/workstation.sass */
+div.list {
+  list-style: none;
+  font-size: 140%;
+}
+
+/* line 907, ../../app/assets/stylesheets/workstation.sass */
+table.items_index {
+  width: 90%;
+  margin: auto;
+  font-size: 110%;
+  text-transform: uppercase;
+  text-align: center;
+}
+/* line 913, ../../app/assets/stylesheets/workstation.sass */
+table.items_index div.salor-icon {
+  padding: 5px 30px;
+}
+
+/* line 916, ../../app/assets/stylesheets/workstation.sass */
+div.list > div {
+  vertical-align: top;
+  display: inline-block;
+  overflow: auto;
+  margin-left: 6px;
+  padding: 4px;
+}
+
+/* line 923, ../../app/assets/stylesheets/workstation.sass */
+div.list > div.master {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #3a474d;
+  margin-top: 15px;
+  font-size: 70%;
+  padding: 0px 10px;
+}
+
+/* line 932, ../../app/assets/stylesheets/workstation.sass */
+div.list > div.widget a {
+  text-decoration: none;
+}
+
+/* line 934, ../../app/assets/stylesheets/workstation.sass */
+div.widget {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #5b7682;
+  padding: 10px;
+}
+
+/* line 937, ../../app/assets/stylesheets/workstation.sass */
+div.list > div.master-wide {
+  border-radius: 8px;
+  border-color: #788285;
+  background-color: #3a474d;
+  margin-top: 15px;
+  padding: 0px 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* line 947, ../../app/assets/stylesheets/workstation.sass */
+div.list img {
+  border: none;
+}
+
+/* Login Page */
+/* line 954, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-forms {
+  width: 600px;
+  height: 450px;
+  padding: 40px;
+  color: #0e1d25;
+}
+
+/* line 960, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-forms > div.tab-container {
+  clear: both;
+  background-color: #5b7682;
+  border-radius: 8px;
+}
+
+/* line 965, ../../app/assets/stylesheets/workstation.sass */
+input#code {
+  text-align: center;
+  position: relative;
+  left: 10%;
+  width: 80%;
+}
+
+/* line 971, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-forms > div.sign-in-form-menu > div.link {
+  float: left;
+  width: 150px;
+  margin-right: 5px;
+  padding-top: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 40px;
+}
+
+/* line 981, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-forms > div.sign-in-form-menu > div {
+  float: left;
+  width: 150px;
+  background-color: #243239;
+  color: #0e1d25;
+  margin-right: 5px;
+  border-radius: 8px;
+}
+
+/* line 989, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-forms > div.sign-in-form-menu > div.active {
+  background-color: #5b7682;
+  color: #0e1d25;
+}
+
+/* line 994, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-form-container * input[type=text],
+div.sign-in-form-container * input[type=password] {
+  border-radius: 8px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  width: 82%;
+}
+
+/* line 1001, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-form-container * div.button-row > div.button-confirm {
+  border-radius: 8px;
+}
+
+/* line 1004, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-form-container * div.button-row {
+  border-radius: 8px;
+  position: relative;
+  right: -250px;
+  bottom: -60px;
+}
+
+/* line 1010, ../../app/assets/stylesheets/workstation.sass */
+div.sign-in-form-container {
+  height: 150px;
+  padding: 20px;
+}
+
+/* line 1014, ../../app/assets/stylesheets/workstation.sass */
+div.content-container * div.pagination {
+  clear: both;
+  padding-top: 100px;
+}
+
+/* line 1020, ../../app/assets/stylesheets/workstation.sass */
+div.content-container-items-index * div.pagination {
+  clear: both;
+  position: relative;
+  top: 30px;
+}
+
+/* line 1025, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.next,
+nav.pagination span.prev,
+nav.pagination span.last,
+nav.pagination span.first,
+nav.pagination span.page,
+nav.pagination span.disabled {
+  padding: 8px;
+  display: inline-block;
+  min-width: 35px;
+  background-color: #3a474d;
+  font-size: 140%;
+  margin-bottom: 10px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+}
+
+/* line 1039, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.page {
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-right: 4px;
+}
+
+/* line 1044, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.first {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  margin-right: 5px;
+}
+
+/* line 1049, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.last {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  margin-left: 5px;
+}
+
+/* line 1054, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.next {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+}
+
+/* line 1057, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.prev {
+  margin-right: 5px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+}
+
+/* line 1061, ../../app/assets/stylesheets/workstation.sass */
+nav.pagination span.disabled {
+  background-color: #7e868a;
+}
+
+/* Keypad CSS */
+/* line 1068, ../../app/assets/stylesheets/workstation.sass */
+input#main_shipment_sku_field,
+input#main_sku_field {
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #788285;
+  width: 30%;
+  background-size: 100%;
+  height: 38px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 220%;
+}
+
+/* line 1081, ../../app/assets/stylesheets/workstation.sass */
+div#main_shipment_sku_field_kbd,
+div#main_sku_field_kbd {
+  padding: 13px 20px;
+  top: -4px;
+}
+
+/* line 1086, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key,
+input.ui-keyboard-button {
+  width: 2em;
+  background-color: #5b7682;
+  padding: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 2px;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0e1d25;
+}
+
+/* line 1101, ../../app/assets/stylesheets/workstation.sass */
+div.ui-keyboard input {
+  font-size: 190%;
+}
+
+/* line 1104, ../../app/assets/stylesheets/workstation.sass */
+input.ui-keyboard-button {
+  float: none;
+  width: 47px;
+}
+
+/* line 1109, ../../app/assets/stylesheets/workstation.sass */
+input.ui-keyboard-button-num {
+  width: 70px;
+  height: 70px;
+  font-size: 25px;
+}
+
+/* line 1114, ../../app/assets/stylesheets/workstation.sass */
+input.ui-keyboard-preview-num {
+  font-size: 200%;
+}
+
+/* line 1117, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-active {
+  background-color: #7e868a;
+}
+
+/* line 1120, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-hover {
+  background-color: #243239;
+}
+
+/* line 1123, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.wide-key {
+  width: 4em;
+}
+
+/* line 1126, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-clear {
+  width: 5.6em;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+}
+
+/* line 1131, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-Enter {
+  width: 5.6em;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+}
+
+/* line 1136, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-Bksp {
+  width: 5.6em;
+  border-radius: 8px;
+}
+
+/* line 1140, ../../app/assets/stylesheets/workstation.sass */
+div.keys div.key-Suche {
+  width: 5.5em;
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+}
+
+/* line 1147, ../../app/assets/stylesheets/workstation.sass */
+td.pos-right-column {
+  width: 200px;
+}
+
+/* line 1150, ../../app/assets/stylesheets/workstation.sass */
+td.pos-right-column table {
+  width: 100%;
+}
+
+/* line 1153, ../../app/assets/stylesheets/workstation.sass */
+td.keyboard-input {
+  width: 50%;
+}
+
+/* line 1156, ../../app/assets/stylesheets/workstation.sass */
+.complete-order-total {
+  text-transform: uppercase;
+  font-size: 150%;
+  background-color: #75b10d;
+  border-radius: 8px;
+  padding: 5px 50px;
+  float: right;
+  width: 120px;
+  text-align: right;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* line 1167, ../../app/assets/stylesheets/workstation.sass */
+#complete_order_change {
+  text-transform: uppercase;
+  font-size: 150%;
+  background-color: #ff351e;
+  color: #0e1d25;
+  border-radius: 8px;
+  padding: 5px 50px;
+  float: right;
+  width: 120px;
+  text-align: right;
+}
+
+/* line 1180, ../../app/assets/stylesheets/workstation.sass */
+.eod-master-table {
+  width: 33%;
+}
+
+/* line 1183, ../../app/assets/stylesheets/workstation.sass */
+div#eod-drawer-total {
+  width: 500px;
+  height: 30px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 10px;
+  background-color: #3a474d;
+  border-radius: 8px;
+}
+
+/* line 1195, ../../app/assets/stylesheets/workstation.sass */
+div#eod-calculator-total, div#eod-calculator-difference {
+  width: 300px;
+  height: 30px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 200%;
+  background-color: #3a474d;
+  border-radius: 8px;
+}
+
+/* line 1207, ../../app/assets/stylesheets/workstation.sass */
+.eod-piece {
+  display: inline-block;
+  margin: 5px;
+  width: 75px;
+}
+
+/* line 1212, ../../app/assets/stylesheets/workstation.sass */
+.eod-calculator-input {
+  width: 30px;
+}
+
+/* line 1215, ../../app/assets/stylesheets/workstation.sass */
+.eod-ok {
+  background-color: darkgreen;
+  color: white;
+}
+
+/* line 1219, ../../app/assets/stylesheets/workstation.sass */
+.pos-order-total {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  padding: 5px;
+  width: 30%;
+  margin: 5px;
+  background-color: #75b10d;
+  border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* line 1234, ../../app/assets/stylesheets/workstation.sass */
+.pos-order-total-highlight {
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 200%;
+  padding: 5px;
+  width: 50%;
+  margin: 5px;
+  background-color: #ff351e;
+  border-radius: 8px;
+  border-radius: 8px;
+}
+
+/* line 1248, ../../app/assets/stylesheets/workstation.sass */
+div.pos-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  cursor: pointer;
+  background-color: white;
+  color: #0e1d25;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  padding: 1px 10px;
+  margin: 0px 5px;
+  height: 43px;
+  width: 7%;
+}
+/* line 1260, ../../app/assets/stylesheets/workstation.sass */
+div.pos-button div.salor-icon {
+  padding: 0px;
+}
+
+/* line 1263, ../../app/assets/stylesheets/workstation.sass */
+div.square-button {
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  background-color: white;
+  color: #0e1d25;
+}
+/* line 1269, ../../app/assets/stylesheets/workstation.sass */
+div.square-button a, div.square-button span {
+  color: black;
+  padding: 5px 20px;
+  display: inline-block;
+}
+
+/* line 1274, ../../app/assets/stylesheets/workstation.sass */
+div.pos-menu div.new-order {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #136880;
+  float: left;
+  color: white;
+}
+
+/* line 1280, ../../app/assets/stylesheets/workstation.sass */
+div.pos-menu div.print-receipt {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  float: right;
+  color: white;
+  padding-right: 5px;
+  width: 15%;
+  text-align: right;
+}
+
+/* line 1289, ../../app/assets/stylesheets/workstation.sass */
+span.pos-cash-register-amount {
+  font-size: 300%;
+  font-weight: bold;
+}
+
+/* line 1293, ../../app/assets/stylesheets/workstation.sass */
+div.pos-menu div.pos-configuration {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+}
+
+/* line 1296, ../../app/assets/stylesheets/workstation.sass */
+.rebate_label, .pos-item-attr {
+  font-size: 140%;
+}
+
+/* line 1299, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-show {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  overflow: visible;
+  padding: 5px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+}
+
+/* line 1308, ../../app/assets/stylesheets/workstation.sass */
+div.pos-item-price_reductions {
+  font-size: 70%;
+}
+
+/* line 1312, ../../app/assets/stylesheets/workstation.sass */
+.highlight {
+  background-color: #ff351e;
+}
+
+/* line 1316, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-sku, .pos-item-rebate, .pos-item-name, .pos-item-total, .quantity-button {
+  text-transform: uppercase;
+  text-align: center;
+  white-space: wrap;
+  width: 7%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* line 1325, ../../app/assets/stylesheets/workstation.sass */
+div.pos-item-attr {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #3a474d;
+  width: 6%;
+}
+
+/* line 1331, ../../app/assets/stylesheets/workstation.sass */
+.table-column {
+  background-color: #3a474d;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 120%;
+}
+
+/* line 1337, ../../app/assets/stylesheets/workstation.sass */
+div.pos-item-total,
+div.pos-item-purchase_price_total {
+  background-color: #75b10d;
+  font-weight: bolder;
+  font-size: 150%;
+  width: 10%;
+}
+
+/* line 1344, ../../app/assets/stylesheets/workstation.sass */
+.quantity-button {
+  border: 1px solid #788285;
+}
+
+/* line 1347, ../../app/assets/stylesheets/workstation.sass */
+div.pos-item-name {
+  padding-right: 20px;
+  padding-left: 10px;
+  overflow-x: hidden;
+  text-align: right;
+  width: 26%;
+}
+
+/* line 1354, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-rebate {
+  width: 7%;
+}
+
+/* line 1357, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-tax_profile_amount {
+  width: 6%;
+}
+
+/* line 1360, ../../app/assets/stylesheets/workstation.sass */
+.quantity-button {
+  padding: 4px 0px 6px 0px;
+}
+
+/* line 1363, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-name {
+  overflow: hidden;
+  white-space: nowrap;
+  float: none;
+}
+
+/* line 1368, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-sku-highlight, .pos-item-rebate-highlight {
+  text-transform: uppercase;
+  text-align: center;
+  white-space: wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #ff351e;
+}
+
+/* line 1377, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-quantity {
+  width: 6%;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #3a474d;
+}
+
+/* line 1383, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-quantity-highlight {
+  text-align: center;
+  text-transform: uppercase;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+/* line 1388, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-price {
+  width: 10%;
+  text-transform: uppercase;
+  background-color: #3a474d;
+}
+
+/* line 1393, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-coupon_amount {
+  width: 9%;
+}
+
+/* line 1396, ../../app/assets/stylesheets/workstation.sass */
+.pos-item-price-highlight {
+  text-transform: uppercase;
+  background-color: #ff351e;
+}
+
+/* line 1400, ../../app/assets/stylesheets/workstation.sass */
+.pos-scrolling-div {
+  margin-top: 10px;
+}
+
+/* line 1403, ../../app/assets/stylesheets/workstation.sass */
+.pos-table-left-column-items {
+  text-align: center;
+}
+
+/* line 1408, ../../app/assets/stylesheets/workstation.sass */
+.oi-menu-icon {
+  padding: 7px;
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  opacity: 0.7;
+  float: left;
+  margin-right: 5px;
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* line 1421, ../../app/assets/stylesheets/workstation.sass */
+.oi-menu-icon img {
+  margin: auto;
+}
+
+/* line 1425, ../../app/assets/stylesheets/workstation.sass */
+.item-menu-div {
+  padding: 5px;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+}
+
+/* line 1430, ../../app/assets/stylesheets/workstation.sass */
+.item-menu-div img {
+  margin-right: 25px;
+}
+
+/* line 1433, ../../app/assets/stylesheets/workstation.sass */
+.customer_name {
+  font-size: 140%;
+}
+
+/* line 1436, ../../app/assets/stylesheets/workstation.sass */
+div.cash-drop, div#coincalculator {
+  padding: 10px;
+  z-index: 100;
+}
+
+/* line 1440, ../../app/assets/stylesheets/workstation.sass */
+.error-input {
+  border: 1px solid red;
+}
+
+/* line 1443, ../../app/assets/stylesheets/workstation.sass */
+.cash-drop, .shipment-create-item, div#coincalculator {
+  width: 450px;
+  font-size: 12.5px;
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  border-radius: 8px;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+}
+
+/* line 1452, ../../app/assets/stylesheets/workstation.sass */
+div#coincalculator {
+  width: 500px;
+}
+
+/* line 1455, ../../app/assets/stylesheets/workstation.sass */
+div#coincalculator {
+  top: 0px;
+  left: 0px;
+  width: 280px;
+}
+
+/* line 1460, ../../app/assets/stylesheets/workstation.sass */
+div.shipment-create-item div.table-cell {
+  padding-bottom: 20px;
+}
+
+/* line 1463, ../../app/assets/stylesheets/workstation.sass */
+div.cash-drop textarea {
+  width: 125px;
+}
+
+/* line 1466, ../../app/assets/stylesheets/workstation.sass */
+input.cash-drop-amount {
+  font-size: 300%;
+  width: 160px;
+}
+
+/* line 1470, ../../app/assets/stylesheets/workstation.sass */
+table.cash-drop-radios {
+  width: 100px;
+  margin-left: 20px;
+  font-size: 75%;
+}
+
+/* line 1475, ../../app/assets/stylesheets/workstation.sass */
+table.cash-drop-radios td {
+  text-align: center;
+}
+
+/* line 1478, ../../app/assets/stylesheets/workstation.sass */
+div.radio-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
+
+/* line 1485, ../../app/assets/stylesheets/workstation.sass */
+div.cash-drop label,
+div.complete-order label {
+  width: 200px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 1491, ../../app/assets/stylesheets/workstation.sass */
+div#coincalculator p {
+  margin: 2px 0px;
+}
+
+/* line 1494, ../../app/assets/stylesheets/workstation.sass */
+div#coincalculator label {
+  display: inline-block;
+  width: 150px;
+}
+
+/* line 1499, ../../app/assets/stylesheets/workstation.sass */
+div#coincalculator input {
+  width: 50px;
+  font-size: 90%;
+}
+
+/* line 1505, ../../app/assets/stylesheets/workstation.sass */
+span.cash_drop_label,
+span.complete_order_label {
+  display: inline-block;
+  width: 200px;
+}
+
+/* line 1510, ../../app/assets/stylesheets/workstation.sass */
+span.complete_order_highlight {
+  color: #ff351e;
+}
+
+/* line 1513, ../../app/assets/stylesheets/workstation.sass */
+.complete-order,
+.reorder-types {
+  border-radius: 8px;
+  width: 450px;
+  font-size: 1.5em;
+  position: absolute;
+  top: 20px;
+  left: 20%;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  padding: 10px 10px 50px 10px;
+  z-index: 102;
+  text-align: left;
+}
+
+/* line 1526, ../../app/assets/stylesheets/workstation.sass */
+.reorder-types {
+  border-radius: 8px;
+  width: 350px;
+  position: absolute;
+  top: 200px;
+  left: 40%;
+}
+
+/* line 1534, ../../app/assets/stylesheets/workstation.sass */
+.complete-order input[type=text] {
+  border-radius: 8px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  color: white;
+}
+
+/* line 1540, ../../app/assets/stylesheets/workstation.sass */
+.complete-recommendation-item {
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 3px;
+  border-radius: 8px;
+  display: inline;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  font-size: 60%;
+  white-space: nowrap;
+}
+
+/* line 1550, ../../app/assets/stylesheets/workstation.sass */
+div.recommendations-container {
+  height: 75px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #243239;
+}
+
+/* line 1555, ../../app/assets/stylesheets/workstation.sass */
+div.pos-menu {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 99;
+  position: relative;
+  margin: 15px 0px 15px 0px;
+  padding: 10px 10px;
+  text-align: center;
+  background-color: #0e1d25;
+}
+/* line 1563, ../../app/assets/stylesheets/workstation.sass */
+div.pos-menu div {
+  display: inline-block;
+}
+
+/* line 1566, ../../app/assets/stylesheets/workstation.sass */
+span.order-rebate_type,
+span.order-rebate,
+span.loyaltycard-points,
+span.order-tag,
+span.order-lc_points, .order-points, .loyalty-points {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 15px;
+  margin: 5px;
+  background-color: #3a474d;
+  cursor: pointer;
+}
+
+/* in place edit styling */
+/* line 1581, ../../app/assets/stylesheets/workstation.sass */
+#inplaceedit-div {
+  font-size: 160%;
+  position: absolute;
+  padding: 10px;
+  opacity: 0.95;
+}
+
+/* line 1588, ../../app/assets/stylesheets/workstation.sass */
+.search-results {
+  height: 250px;
+  overflow-y: scroll;
+  border-radius: 8px;
+  border: 1px solid #5b7682;
+}
+/* line 1593, ../../app/assets/stylesheets/workstation.sass */
+.search-results img {
+  width: 30px;
+}
+
+/* line 1597, ../../app/assets/stylesheets/workstation.sass */
+#results_table th {
+  color: white;
+}
+
+/* line 1601, ../../app/assets/stylesheets/workstation.sass */
+#inplaceeditsave, #inplaceeditcancel {
+  cursor: pointer;
+}
+
+/* line 1604, ../../app/assets/stylesheets/workstation.sass */
+.item-edit {
+  z-index: 1001;
+  width: 50%;
+  font-size: 1.5em;
+  padding: 10px;
+  padding-top: 1em;
+  background-color: #3c3c3c;
+  border-color: #1a1313;
+  opacity: 0.95;
+  color: #121111;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* line 1617, ../../app/assets/stylesheets/workstation.sass */
+.search {
+  width: 90%;
+  font-size: 1.5em;
+  position: fixed;
+  top: 0;
+  left: 2%;
+  padding: 10px;
+  padding-top: 1em;
+  background-color: #3a474d;
+  text-align: center;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+}
+
+/* line 1629, ../../app/assets/stylesheets/workstation.sass */
+.rounded-corners-left {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* line 1632, ../../app/assets/stylesheets/workstation.sass */
+.button-cancel {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  padding: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+/* line 1640, ../../app/assets/stylesheets/workstation.sass */
+.button-confirm {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 1647, ../../app/assets/stylesheets/workstation.sass */
+.button-print {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 1653, ../../app/assets/stylesheets/workstation.sass */
+.button-confirm-left {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 1660, ../../app/assets/stylesheets/workstation.sass */
+.button-confirm-bottom-left {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 3px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 1667, ../../app/assets/stylesheets/workstation.sass */
+.button-confirm-bottom-right {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 3px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+}
+
+/* line 1674, ../../app/assets/stylesheets/workstation.sass */
+.button-scroller {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 2px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  font-size: 11pt;
+}
+
+/* line 1683, ../../app/assets/stylesheets/workstation.sass */
+.button-highlight {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #ff351e;
+  color: #0e1d25;
+}
+
+/* line 1686, ../../app/assets/stylesheets/workstation.sass */
+.button-inactive {
+  background-color: gray;
+  color: #a0a0a0;
+}
+
+/* line 1690, ../../app/assets/stylesheets/workstation.sass */
+.button-row div {
+  display: inline;
+}
+
+/* line 1694, ../../app/assets/stylesheets/workstation.sass */
+.clear {
+  clear: both;
+}
+
+/* line 1697, ../../app/assets/stylesheets/workstation.sass */
+.clear-hr {
+  clear: both;
+  height: 10px;
+  border-bottom: 2px solid #243239;
+  margin-bottom: 10px;
+}
+
+/* line 1703, ../../app/assets/stylesheets/workstation.sass */
+.button-row {
+  margin-top: 5px;
+}
+
+/* line 1706, ../../app/assets/stylesheets/workstation.sass */
+div.spacer {
+  width: 10px;
+  margin-left: -4px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px;
+}
+
+/* line 1712, ../../app/assets/stylesheets/workstation.sass */
+div.spacer-wide {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px;
+  width: 40px;
+}
+
+/* line 1718, ../../app/assets/stylesheets/workstation.sass */
+div.spacer-rmargin {
+  width: 10px;
+  margin-right: 5px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 3px;
+  cursor: pointer;
+}
+
+/* line 1725, ../../app/assets/stylesheets/workstation.sass */
+div.field {
+  text-align: left;
+  width: 370px;
+  margin-bottom: 10px;
+}
+
+/* line 1730, ../../app/assets/stylesheets/workstation.sass */
+div.form-container div.field {
+  float: left;
+  width: 240px;
+  margin-right: 10px;
+}
+
+/* line 1735, ../../app/assets/stylesheets/workstation.sass */
+div.form-container div.new-item-field {
+  float: left;
+}
+
+/* line 1739, ../../app/assets/stylesheets/workstation.sass */
+div.form-container div.field input {
+  width: 180px;
+}
+
+/* line 1742, ../../app/assets/stylesheets/workstation.sass */
+div.freefield {
+  margin-right: 15px;
+  padding-bottom: 12px;
+  width: 260px;
+}
+
+/* line 1747, ../../app/assets/stylesheets/workstation.sass */
+td.shipment-item-add img {
+  margin-left: 30px;
+}
+
+/* line 1750, ../../app/assets/stylesheets/workstation.sass */
+.scrollable-div {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+}
+
+/* line 1759, ../../app/assets/stylesheets/workstation.sass */
+div.scrollable-button-row {
+  position: relative;
+  bottom: 0px;
+  right: 50px;
+  z-index: 1005;
+  width: 150px;
+  height: 35px;
+}
+
+/* line 1767, ../../app/assets/stylesheets/workstation.sass */
+.scrollable-button-row div {
+  float: left;
+  padding: 5px;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+/* line 1772, ../../app/assets/stylesheets/workstation.sass */
+.scrollable-button-row div.spacer-rmargin {
+  padding: 2px;
+  padding-top: 17px;
+}
+
+/* line 1776, ../../app/assets/stylesheets/workstation.sass */
+.scrollable-button-row div.scrollable-space-wide {
+  padding: 2px;
+  padding-top: 17px;
+  padding-left: 10px;
+  margin-right: 5px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+}
+
+/* line 1783, ../../app/assets/stylesheets/workstation.sass */
+.button-down {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  padding: 3px;
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-right: 3px;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* line 1794, ../../app/assets/stylesheets/workstation.sass */
+.button-up {
+  border-radius: 8px;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 3px;
+  padding-left: 9px;
+  padding-right: 9px;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* line 1809, ../../app/assets/stylesheets/workstation.sass */
+div.salor-presentation table {
+  background-color: #1c0f1e;
+  font-size: 130%;
+}
+
+/* line 1814, ../../app/assets/stylesheets/workstation.sass */
+div.salor-presentation table tr {
+  height: 50px;
+  vertical-align: bottom;
+}
+
+/* line 1819, ../../app/assets/stylesheets/workstation.sass */
+div.ui-keyboard {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  padding: 10px;
+  text-align: center;
+  z-index: 2000;
+}
+
+/* line 1826, ../../app/assets/stylesheets/workstation.sass */
+input.ui-keyboard-space {
+  width: 200px;
+}
+
+/* line 1830, ../../app/assets/stylesheets/workstation.sass */
+div#inplaceedit-div {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+}
+
+/* line 1834, ../../app/assets/stylesheets/workstation.sass */
+a#inplaceeditcancel,
+a#inplaceeditsave {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+/* line 1841, ../../app/assets/stylesheets/workstation.sass */
+div.pagination {
+  clear: both;
+}
+
+/* line 1844, ../../app/assets/stylesheets/workstation.sass */
+table.tools {
+  clear: both;
+  align: center;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin: 5px auto 20px auto;
+  border-radius: 8px;
+  background-color: #0e1d25;
+}
+
+/* line 1852, ../../app/assets/stylesheets/workstation.sass */
+div.tools {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  clear: both;
+  margin: 5px auto 20px auto;
+}
+/* line 1856, ../../app/assets/stylesheets/workstation.sass */
+div.tools a {
+  text-decoration: none;
+}
+
+/* line 1860, ../../app/assets/stylesheets/workstation.sass */
+input.checkbox-input {
+  margin-top: 15px;
+}
+
+/* line 1864, ../../app/assets/stylesheets/workstation.sass */
+input#search_keywords {
+  width: 70%;
+}
+
+/* line 1868, ../../app/assets/stylesheets/workstation.sass */
+select#search_models {
+  font-size: 140%;
+}
+
+/* line 1872, ../../app/assets/stylesheets/workstation.sass */
+div.search button {
+  font-size: 140%;
+}
+
+/* line 1876, ../../app/assets/stylesheets/workstation.sass */
+select#inplaceedit {
+  font-size: 140%;
+}
+
+/* line 1880, ../../app/assets/stylesheets/workstation.sass */
+span#pos_order_rebate_type {
+  cursor: pointer;
+}
+
+/* line 1884, ../../app/assets/stylesheets/workstation.sass */
+span#pos_order_rebate {
+  cursor: pointer;
+}
+
+/* line 1888, ../../app/assets/stylesheets/workstation.sass */
+div#parts_target input {
+  width: 115px;
+}
+
+/* define height and width of scrollable area. Add 16px to width for scrollbar        */
+/* line 1892, ../../app/assets/stylesheets/workstation.sass */
+div.tableContainer {
+  clear: both;
+  height: 300px;
+  overflow: auto;
+  width: 75%;
+  padding-bottom: 3px;
+}
+
+/* Reset overflow value to hidden for all non-IE browsers. */
+/* line 1901, ../../app/assets/stylesheets/workstation.sass */
+html > body div.tableContainer {
+  overflow: hidden;
+  width: 75%;
+}
+
+/* define width of table. IE browsers only               */
+/* line 1908, ../../app/assets/stylesheets/workstation.sass */
+div.tableContainer table {
+  float: left;
+  width: 100%;
+}
+
+/* define width of table. Add 16px to width for scrollbar.         */
+/* All other non-IE browsers.                                      */
+/* line 1915, ../../app/assets/stylesheets/workstation.sass */
+html > body div.tableContainer table {
+  width: 100%;
+}
+
+/* set table header to a fixed position. WinIE 6.x only                                     */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of     */
+/* an element that has an overflow property set, the relative value translates into fixed.  */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+/* line 1923, ../../app/assets/stylesheets/workstation.sass */
+thead.fixedHeader tr {
+  position: relative;
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers          */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* line 1929, ../../app/assets/stylesheets/workstation.sass */
+html > body thead.fixedHeader tr {
+  display: block;
+}
+
+/* make the TH elements pretty */
+/* line 1934, ../../app/assets/stylesheets/workstation.sass */
+thead.fixedHeader th {
+  background: #243239;
+  font-weight: normal;
+  padding: 4px 3px;
+  color: #333333;
+  text-align: center;
+}
+
+/* make the A elements pretty. makes for nice clickable headers              */
+/* line 1943, ../../app/assets/stylesheets/workstation.sass */
+thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+
+/* make the A elements pretty. makes for nice clickable headers              */
+/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
+/* line 1951, ../../app/assets/stylesheets/workstation.sass */
+thead.fixedHeader a:hover {
+  display: block;
+  text-decoration: underline;
+  width: 100%;
+}
+
+/* line 1956, ../../app/assets/stylesheets/workstation.sass */
+tbody.scrollContent {
+  width: 100%;
+}
+
+/* define the table content to be scrollable                                            */
+/* set TBODY element to have block level attributes. All other non-IE browsers          */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                   */
+/* line 1963, ../../app/assets/stylesheets/workstation.sass */
+html > body tbody.scrollContent {
+  display: block;
+  height: 262px;
+  overflow: auto;
+  width: 100%;
+}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http: //www.alistapart.com/articles/zebratables/                           */
+/* line 1972, ../../app/assets/stylesheets/workstation.sass */
+tbody.scrollContent td, tbody.scrollContent tr.normalRow td {
+  padding: 2px 3px 3px 4px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: middle;
+}
+
+/* line 1979, ../../app/assets/stylesheets/workstation.sass */
+tbody.scrollContent tr.alternateRow td {
+  padding: 2px 3px 3px 4px;
+}
+
+/* define width of TH elements: 1st, 2nd, and 3rd respectively.        */
+/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+/* http: //www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors      */
+/* line 1986, ../../app/assets/stylesheets/workstation.sass */
+html > body thead.fixedHeader th {
+  width: 250px;
+}
+
+/* line 1990, ../../app/assets/stylesheets/workstation.sass */
+html > body thead.fixedHeader th + th {
+  width: 200px;
+}
+
+/* line 1994, ../../app/assets/stylesheets/workstation.sass */
+html > body thead.fixedHeader th + th + th {
+  width: 80px;
+}
+
+/* define width of TD elements: 1st, 2nd, and 3rd respectively.        */
+/* All other non-IE browsers.                                          */
+/* http: //www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors      */
+/* line 2001, ../../app/assets/stylesheets/workstation.sass */
+html > body tbody.scrollContent td {
+  width: 250px;
+  background-color: #243239;
+}
+
+/* line 2006, ../../app/assets/stylesheets/workstation.sass */
+html > body tbody.scrollContent td + td {
+  width: 200px;
+}
+
+/* line 2010, ../../app/assets/stylesheets/workstation.sass */
+html > body tbody.scrollContent td + td + td {
+  width: 80px;
+}
+
+/* line 2014, ../../app/assets/stylesheets/workstation.sass */
+select {
+  -webkit-appearance: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  border-radius: 8px;
+  padding-right: 5px;
+  background-color: #ed8b00;
+  color: black;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+/* line 2024, ../../app/assets/stylesheets/workstation.sass */
+option {
+  color: black;
+}
+
+/* line 2027, ../../app/assets/stylesheets/workstation.sass */
+select:focus {
+  outline: none;
+}
+
+/* line 2031, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar {
+  width: 35px;
+  background-color: #0e1d25;
+}
+
+/* line 2035, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar-thumb:vertical {
+  background-color: #3a474d;
+  min-height: 20px;
+  max-height: 100px;
+  border-radius: 8px;
+}
+
+/* line 2041, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar-track:vertical {
+  background-color: #0e1d25;
+  border-radius: 8px;
+}
+
+/* line 2045, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar-button:vertical {
+  height: 35px;
+  background-color: #3a474d;
+}
+
+/* line 2048, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar-button:vertical:decrement {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* line 2051, ../../app/assets/stylesheets/workstation.sass */
+::-webkit-scrollbar-button:vertical:increment {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* line 2054, ../../app/assets/stylesheets/workstation.sass */
+.loadmask {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  background-color: #0e1d25;
+  width: 100%;
+  height: 100%;
+  zoom: 1;
+}
+
+/* line 2066, ../../app/assets/stylesheets/workstation.sass */
+.loadmask-msg {
+  z-index: 20001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #444444;
+  background: #243239;
+  padding: 2px;
+}
+
+/* line 2075, ../../app/assets/stylesheets/workstation.sass */
+.loadmask-msg div {
+  padding: 5px 10px 5px 25px;
+  background: #fbfbfb url("/images/loading.gif") no-repeat 5px 5px;
+  line-height: 16px;
+  border: 1px solid #788285;
+  color: #222222;
+  font: normal 11px tahoma, arial, helvetica, sans-serif;
+  cursor: wait;
+}
+
+/* line 2084, ../../app/assets/stylesheets/workstation.sass */
+.masked {
+  overflow: hidden !important;
+}
+
+/* line 2087, ../../app/assets/stylesheets/workstation.sass */
+.masked-relative {
+  position: relative !important;
+}
+
+/* line 2090, ../../app/assets/stylesheets/workstation.sass */
+.masked-hidden {
+  visibility: hidden !important;
+}
+
+/* line 2093, ../../app/assets/stylesheets/workstation.sass */
+div.void-order {
+  position: fixed;
+  left: 5%;
+  top: 15%;
+  width: 85%;
+}
+/* line 2098, ../../app/assets/stylesheets/workstation.sass */
+div.void-order div.form-container {
+  height: 300px;
+}
+/* line 2100, ../../app/assets/stylesheets/workstation.sass */
+div.void-order iframe {
+  width: 100%;
+  height: 100%;
+}
+/* line 2103, ../../app/assets/stylesheets/workstation.sass */
+div.void-order div.button-row {
+  position: relative;
+  bottom: 10px;
+  right: 20px;
+}
+
+/* line 2108, ../../app/assets/stylesheets/workstation.sass */
+div.void-order-input-container {
+  top: 30%;
+  left: 33%;
+  width: 240px;
+  width: 99%;
+  height: 90%;
+  border: none;
+}
+/* line 2112, ../../app/assets/stylesheets/workstation.sass */
+div.void-order-input-container input {
+  width: 7em;
+  height: 1.5em;
+  font-size: 1.5em;
+}
+/* line 2117, ../../app/assets/stylesheets/workstation.sass */
+div.void-order-input-container span.label {
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+/* line 2128, ../../app/assets/stylesheets/workstation.sass */
+div.report-container {
+  padding: 10px;
+  width: 75%;
+  margin: auto;
+  background-color: white;
+  line-break: strict;
+  color: black;
+}
+/* line 2135, ../../app/assets/stylesheets/workstation.sass */
+div.report-container input {
+  display: none;
+}
+
+/* line 2139, ../../app/assets/stylesheets/workstation.sass */
+.report-container h2,
+.report-container h3 {
+  color: black;
+  font-size: 2em;
+  margin-top: 40px;
+}
+
+/* line 2146, ../../app/assets/stylesheets/workstation.sass */
+table.report_day {
+  width: 600px;
+  margin-bottom: 30px;
+}
+
+/* line 2151, ../../app/assets/stylesheets/workstation.sass */
+table.report_day th.left,
+table.report_day td.left {
+  text-align: left;
+  padding: 0px 10px;
+}
+
+/* line 2157, ../../app/assets/stylesheets/workstation.sass */
+table.report_day th.right,
+table.report_day td.right {
+  text-align: right;
+  padding: 0px 10px;
+}
+
+/* line 2164, ../../app/assets/stylesheets/workstation.sass */
+table.report th.id {
+  width: 50px;
+}
+
+/* line 2168, ../../app/assets/stylesheets/workstation.sass */
+table.report th.date {
+  width: 135px;
+}
+
+/* line 2172, ../../app/assets/stylesheets/workstation.sass */
+table.report th.name {
+  width: 120px;
+}
+
+/* line 2176, ../../app/assets/stylesheets/workstation.sass */
+table.report td.colsum,
+table.report th.colsum {
+  font-weight: bold;
+  border-right: 2px solid black;
+}
+
+/* line 2182, ../../app/assets/stylesheets/workstation.sass */
+table.order-report th {
+  text-align: left;
+}
+
+/* line 2186, ../../app/assets/stylesheets/workstation.sass */
+table.order-report td {
+  text-align: left;
+}
+
+/* line 2190, ../../app/assets/stylesheets/workstation.sass */
+table.report td {
+  text-align: right;
+}
+
+/* line 2194, ../../app/assets/stylesheets/workstation.sass */
+table.report tr.total {
+  font-weight: bold;
+}
+
+/* line 2198, ../../app/assets/stylesheets/workstation.sass */
+div.from, div.to {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* line 2203, ../../app/assets/stylesheets/workstation.sass */
+div.metric-input {
+  margin-right: 40px;
+}
+
+/* line 2207, ../../app/assets/stylesheets/workstation.sass */
+div#additional div.metric-input input {
+  width: 50px;
+}
+
+/* line 2210, ../../app/assets/stylesheets/workstation.sass */
+table.shipments-edit {
+  width: 95%;
+  margin: auto;
+}
+/* line 2213, ../../app/assets/stylesheets/workstation.sass */
+table.shipments-edit th {
+  font-size: 70%;
+}
+
+/* line 2217, ../../app/assets/stylesheets/workstation.sass */
+table.shipments_index td,
+table.shipments-edit td {
+  padding: 5px;
+  background-color: #7e868a;
+  color: white;
+}
+
+/* line 2224, ../../app/assets/stylesheets/workstation.sass */
+div.shipments-edit-left {
+  float: left;
+  width: 70%;
+}
+
+/* line 2229, ../../app/assets/stylesheets/workstation.sass */
+div.shipments-edit-left img {
+  cursor: pointer;
+}
+
+/* line 2233, ../../app/assets/stylesheets/workstation.sass */
+div.shipments-edit-right {
+  text-align: left;
+  width: 50%;
+}
+
+/* line 2238, ../../app/assets/stylesheets/workstation.sass */
+div#shipment_items input.attribute-input-quantity {
+  width: 50px;
+}
+
+/* line 2242, ../../app/assets/stylesheets/workstation.sass */
+td.item-form-first {
+  width: 30%;
+}
+
+/* line 2246, ../../app/assets/stylesheets/workstation.sass */
+div.errors {
+  background-color: red;
+}
+
+/* line 2250, ../../app/assets/stylesheets/workstation.sass */
+div.errors2 {
+  color: red;
+}
+
+/* line 2254, ../../app/assets/stylesheets/workstation.sass */
+div#additional {
+  height: 375px;
+  width: 98%;
+}
+
+/* line 2259, ../../app/assets/stylesheets/workstation.sass */
+div.discount_applied {
+  background-color: #5b7682;
+}
+
+/* line 2262, ../../app/assets/stylesheets/workstation.sass */
+div.dark-background {
+  background-color: #0e1d25;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+/*E-Help classes */
+/* line 2270, ../../app/assets/stylesheets/workstation.sass */
+.EHmarker {
+  border: 1px solid red;
+}
+
+/* line 2273, ../../app/assets/stylesheets/workstation.sass */
+#EHhelpBox {
+  position: relative;
+  padding: 5px 10px 10px 10px;
+}
+
+/* line 2276, ../../app/assets/stylesheets/workstation.sass */
+#EHhelpBox .title {
+  color: red;
+}
+
+/* line 2278, ../../app/assets/stylesheets/workstation.sass */
+#EHhelpBox a {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 2281, ../../app/assets/stylesheets/workstation.sass */
+#EHhelpBox a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+/* line 2285, ../../app/assets/stylesheets/workstation.sass */
+#EHpointer {
+  width: 32px;
+  height: 32px;
+  left: 0px;
+  top: 0px;
+  cursor: pointer;
+  display: none;
+  background: transparent url("cursor.png") 0 0 no-repeat;
+  z-index: 10;
+}
+
+/* line 2296, ../../app/assets/stylesheets/workstation.sass */
+#EHtooltip {
+  position: absolute;
+  border: 1px solid #333333;
+  background: #f7f5d1;
+  padding: 2px 5px;
+  color: #333333;
+  display: none;
+  font-size: 11px;
+  z-index: 101;
+}
+
+/* line 2307, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltipc {
+  position: absolute;
+  border: 1px solid #333333;
+  background: #f7f5d1;
+  padding: 0;
+  margin: 0;
+  color: #333333;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+  z-index: 101;
+  width: auto;
+}
+
+/* line 2321, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltipc:hover {
+  z-index: 102;
+}
+
+/* line 2324, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltipc span {
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+  float: left;
+  margin: 0;
+  padding: 2px 4px;
+  position: relative;
+}
+
+/* line 2334, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltmp {
+  position: absolute;
+  border: 1px solid #333333;
+  background: #f7f5d1;
+  padding: 0;
+  margin: 0;
+  color: #333333;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+  z-index: 101;
+}
+
+/* line 2347, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltmp p {
+  margin: 0;
+  display: block;
+  position: relative;
+  float: left;
+  padding: 3px;
+}
+
+/* line 2355, ../../app/assets/stylesheets/workstation.sass */
+.EHtooltmp a.EHclose {
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+  float: left;
+  margin: 0;
+  padding: 2px 4px;
+  position: relative;
+  font-weight: bold;
+  display: block;
+}
+
+/* line 2367, ../../app/assets/stylesheets/workstation.sass */
+.EHtoolgost {
+  position: absolute;
+  border: 1px solid #999999;
+  background: #eeeeee;
+  padding: 0;
+  margin: 0;
+  color: #666666;
+  display: none;
+  font-size: 11px;
+  line-height: 11px;
+  z-index: 101;
+}
+
+/* line 2380, ../../app/assets/stylesheets/workstation.sass */
+.EHtoolgost span {
+  background-color: #eeeeee;
+  border: 1px solid white;
+  color: #666666;
+  float: left;
+  margin: 0;
+  padding: 2px 4px;
+  position: relative;
+}
+
+/* line 2390, ../../app/assets/stylesheets/workstation.sass */
+header.report {
+  display: block;
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+/* line 2399, ../../app/assets/stylesheets/workstation.sass */
+section#datepick {
+  display: block;
+}
+
+/* line 2403, ../../app/assets/stylesheets/workstation.sass */
+section.report {
+  display: block;
+  margin-top: 3em;
+}
+
+/* line 2410, ../../app/assets/stylesheets/workstation.sass */
+.eod-drawer-button, .pos-drawer-button, .uniscalebutton {
+  padding: 5px 0px;
+  width: 15%;
+  margin: 5px;
+  min-height: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* line 2419, ../../app/assets/stylesheets/workstation.sass */
+.pos-drawer-button {
+  position: absolute;
+  background-color: #3a474d;
+}
+
+/* line 2424, ../../app/assets/stylesheets/workstation.sass */
+.uniscalebutton {
+  position: absolute;
+  right: 0px;
+  background-color: #3a474d;
+}
+
+/* line 2430, ../../app/assets/stylesheets/workstation.sass */
+div.wholesaler-refresh {
+  position: absolute;
+  top: 150px;
+  left: 20%;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  background-color: #0e1d25;
+}
+
+/* line 2439, ../../app/assets/stylesheets/workstation.sass */
+div.bycard-waiting {
+  position: absolute;
+  top: 150px;
+  left: 20%;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  background-color: #0e1d25;
+  z-index: 1005;
+}
+
+/* line 2450, ../../app/assets/stylesheets/workstation.sass */
+div.generic-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  border-radius: 8px;
+  cursor: pointer;
+  cursor: pointer;
+  width: 140px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 2462, ../../app/assets/stylesheets/workstation.sass */
+div.pieces-button {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  border-right: none;
+}
+
+/* line 2474, ../../app/assets/stylesheets/workstation.sass */
+div.bycard-button {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100px;
+  padding: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  border-left: none;
+}
+
+/* line 2486, ../../app/assets/stylesheets/workstation.sass */
+div.a4-print-button {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  border-left: none;
+}
+
+/* line 2497, ../../app/assets/stylesheets/workstation.sass */
+div.bycard-button img {
+  top: -8px;
+  position: relative;
+}
+
+/* line 2501, ../../app/assets/stylesheets/workstation.sass */
+div.generic-button-cool {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 2511, ../../app/assets/stylesheets/workstation.sass */
+div.item-button {
+  width: 90px;
+  display: inline-block;
+  overflow: hidden;
+  padding: 20px 20px;
+  text-align: center;
+  font-size: 100%;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+/* line 2521, ../../app/assets/stylesheets/workstation.sass */
+div#buttons {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+}
+
+/* line 2531, ../../app/assets/stylesheets/workstation.sass */
+div.button-category {
+  display: inline-block;
+  width: 80px;
+  padding: 20px 20px;
+  margin: 0px 5px 10px 5px;
+}
+
+/* line 2537, ../../app/assets/stylesheets/workstation.sass */
+div.button-category-container {
+  display: none;
+}
+
+/* line 2540, ../../app/assets/stylesheets/workstation.sass */
+div.button-category-containers div:first-child {
+  display: inline-block;
+}
+
+/* line 2543, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders {
+  display: none;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 103;
+  left: 5%;
+  width: 90%;
+  top: 100px;
+}
+/* line 2552, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders div.recent-order {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #5b7682;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 10px;
+  width: 150px;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+/* line 2564, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders div.recent-order p.recent-order-number {
+  font-size: 120%;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+}
+/* line 2569, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders div.recent-order p {
+  margin: 2px 0px;
+}
+/* line 2571, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders div.recent-order p.recent_price {
+  font-weight: bold;
+  font-size: 110%;
+}
+/* line 2574, ../../app/assets/stylesheets/workstation.sass */
+div#last_orders div.recent-order div.salor-icon {
+  margin: 0px 7px;
+}
+
+/* line 2582, ../../app/assets/stylesheets/workstation.sass */
+div.dt-tags {
+  position: absolute;
+  left: -10%;
+  top: 10px;
+  width: 600px;
+  z-index: 100;
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+}
+/* line 2591, ../../app/assets/stylesheets/workstation.sass */
+div.dt-tags div.dt-tag-button {
+  margin: 5px;
+  float: left;
+  font-size: 12.5px;
+}
+
+/* line 2597, ../../app/assets/stylesheets/workstation.sass */
+div.dt-tag-target {
+  font-size: 1em;
+  padding: 15px;
+}
+
+/* line 2601, ../../app/assets/stylesheets/workstation.sass */
+div.void-order {
+  width: 95%;
+}
+
+/* line 2604, ../../app/assets/stylesheets/workstation.sass */
+div.void-order div.form-container {
+  width: 95%;
+}
+
+/* line 2607, ../../app/assets/stylesheets/workstation.sass */
+div#bycard_settings {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+}
+
+/* line 2611, ../../app/assets/stylesheets/workstation.sass */
+.complete-order-button {
+  width: 98%;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 2em;
+}
+
+/* line 2618, ../../app/assets/stylesheets/workstation.sass */
+div.report-container img.left {
+  float: left;
+  width: 200px;
+}
+
+/* line 2624, ../../app/assets/stylesheets/workstation.sass */
+div.report-container img.right {
+  float: right;
+  width: 200px;
+}
+
+/* line 2629, ../../app/assets/stylesheets/workstation.sass */
+div.clear {
+  clear: both;
+}
+
+/* line 2632, ../../app/assets/stylesheets/workstation.sass */
+table.taxes {
+  width: 50%;
+}
+
+/* line 2636, ../../app/assets/stylesheets/workstation.sass */
+div.backup {
+  text-align: center;
+}
+
+/* line 2640, ../../app/assets/stylesheets/workstation.sass */
+div.rebate {
+  display: none;
+  text-align: center;
+  margin: 10px;
+}
+
+/* line 2645, ../../app/assets/stylesheets/workstation.sass */
+.pos-customer {
+  text-align: center;
+  margin: 10px;
+}
+
+/* line 2650, ../../app/assets/stylesheets/workstation.sass */
+div.center {
+  text-align: center;
+}
+
+/* line 2654, ../../app/assets/stylesheets/workstation.sass */
+div#print_receipt_button span#order_id_display {
+  position: relative;
+  font-size: 110%;
+  left: 0px;
+  top: -22px;
+}
+
+/* line 2660, ../../app/assets/stylesheets/workstation.sass */
+div.print_report_button {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* line 2667, ../../app/assets/stylesheets/workstation.sass */
+div.pos-highlight {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #ff351e;
+  color: #0e1d25;
+}
+
+/* line 2670, ../../app/assets/stylesheets/workstation.sass */
+table.payment-methods-table td {
+  padding: 10px;
+  min-width: 100px;
+}
+
+/* line 2674, ../../app/assets/stylesheets/workstation.sass */
+table.payment-methods-table tr:nth-child(odd) {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #5b7682;
+}
+
+/* line 2680, ../../app/assets/stylesheets/workstation.sass */
+.cool-button-left {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* line 2686, ../../app/assets/stylesheets/workstation.sass */
+.cool-button-right {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* line 2692, ../../app/assets/stylesheets/workstation.sass */
+.general-dialog {
+  border: 1px solid #788285;
+  background-color: rgba(36, 50, 57, 0.92);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 30px;
+  z-index: 150;
+  border-radius: 8px;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  width: 60%;
+  min-height: 200px;
+  text-align: left;
+  z-index: 1020;
+}
+
+/* line 2703, ../../app/assets/stylesheets/workstation.sass */
+div.general-dialog .button-row {
+  margin-bottom: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* line 2709, ../../app/assets/stylesheets/workstation.sass */
+div.general-dialog .general-dialog-title {
+  margin-top: -10px;
+  margin-left: 20px;
+}
+
+/* line 2713, ../../app/assets/stylesheets/workstation.sass */
+div.general-dialog .general-dialog-msg {
+  margin-left: 30px;
+}
+
+/* line 2718, ../../app/assets/stylesheets/workstation.sass */
+.short-input {
+  width: 60%;
+}
+
+/* line 2721, ../../app/assets/stylesheets/workstation.sass */
+table.pretty-table th {
+  text-align: center;
+}
+
+/* line 2724, ../../app/assets/stylesheets/workstation.sass */
+.node-listing {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #5b7682;
+  padding: 10px;
+}
+
+/* line 2731, ../../app/assets/stylesheets/workstation.sass */
+div.node-listing div {
+  display: inline-block;
+}
+
+/* line 2734, ../../app/assets/stylesheets/workstation.sass */
+div.node-listing .name {
+  border-radius: 8px;
+  background-color: #0e1d25;
+  padding: 5px;
+  width: 50%;
+  padding-left: 10px;
+  font-size: 120%;
+}
+
+/* line 2742, ../../app/assets/stylesheets/workstation.sass */
+div.node-listing .sku {
+  border-radius: 8px;
+  background-color: #0e1d25;
+  padding: 5px;
+  width: 20%;
+  padding-left: 10px;
+  font-size: 120%;
+}
+
+/* line 2750, ../../app/assets/stylesheets/workstation.sass */
+div.node-self {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+}
+
+/* line 2753, ../../app/assets/stylesheets/workstation.sass */
+.link-menu-table td {
+  padding: 10px;
+  padding-right: 35px;
+}
+
+/* line 2757, ../../app/assets/stylesheets/workstation.sass */
+.big-input {
+  width: 500px;
+  height: 40px;
+  font-size: 25px;
+}
+
+/* line 2764, ../../app/assets/stylesheets/workstation.sass */
+div.edit-delete-row div {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 75%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* line 2772, ../../app/assets/stylesheets/workstation.sass */
+div.edit-delete-row div.spacer {
+  width: 4px;
+  padding-left: 1px;
+  padding-right: 1px;
+  margin: 0;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+}
+
+/* line 2779, ../../app/assets/stylesheets/workstation.sass */
+div.edit-delete-row div.edit {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #8ec9fb;
+  color: #0e1d25;
+  border-radius: 8px;
+  text-align: right;
+  padding-left: 11px;
+  padding-right: 2px;
+  margin-right: -1px;
+}
+
+/* line 2787, ../../app/assets/stylesheets/workstation.sass */
+div.edit-delete-row div.delete {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+  border-radius: 8px;
+  text-align: right;
+  padding-right: 11px;
+  padding-left: 5px;
+  margin-left: -1px;
+}
+
+/* line 2795, ../../app/assets/stylesheets/workstation.sass */
+div.delete {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e81919;
+  color: #0e1d25;
+  border-radius: 8px;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* line 2804, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox {
+  display: inline;
+  font-size: 25px;
+  line-height: 25px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 2811, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox .mark {
+  display: inline;
+}
+
+/* line 2814, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox img {
+  vertical-align: middle;
+  width: 60px;
+  height: 25px;
+}
+
+/* line 2819, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox img {
+  background: transparent url(/images/checkbox.png) no-repeat;
+}
+
+/* line 2822, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox img {
+  background-position: 0px 0px;
+}
+
+/* line 2825, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox-checked img {
+  background-position: 0px -50px;
+}
+
+/* line 2828, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox-disabled img {
+  background-position: 0px -100px;
+}
+
+/* line 2831, ../../app/assets/stylesheets/workstation.sass */
+.jquery-checkbox-checked .jquery-checkbox-disabled img {
+  background-position: 0px -125px;
+}
+
+/* line 2834, ../../app/assets/stylesheets/workstation.sass */
+div.select-widget-button,
+div.select-widget-entry {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  margin: 5px;
+  display: inline-block;
+  min-width: 50px;
+}
+
+/* line 2844, ../../app/assets/stylesheets/workstation.sass */
+div.select-widget-display {
+  border-radius: 8px;
+  border-color: white;
+  background-color: #5b7682;
+  background-color: #243239;
+  padding: 10px;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  z-index: 1025;
+  box-shadow: 0px 0px 10px white;
+}
+
+/* line 2853, ../../app/assets/stylesheets/workstation.sass */
+div.plugin-panel div {
+  display: inline-block;
+  margin: 5px;
+}
+
+/* line 2856, ../../app/assets/stylesheets/workstation.sass */
+div.role-check {
+  margin: 5px;
+  float: left;
+  padding: 3px;
+  width: 25%;
+}
+
+/* line 2864, ../../app/assets/stylesheets/workstation.sass */
+div.shipment_item_attr_header {
+  display: inline-block;
+}
+
+/* line 2867, ../../app/assets/stylesheets/workstation.sass */
+div.shipment_item_attr_header_sku, div.shipment_item_attr_header_name {
+  width: 165px;
+}
+
+/* line 2870, ../../app/assets/stylesheets/workstation.sass */
+div.shipment_item_attr_header_quantity {
+  width: 100px;
+}
+
+/* line 2873, ../../app/assets/stylesheets/workstation.sass */
+div.shipment_item_attr_header_stock_location_id {
+  width: 100px;
+}
+
+/* line 2876, ../../app/assets/stylesheets/workstation.sass */
+div#request_service {
+  padding-top: 10px;
+  text-align: center;
+}
+/* line 2878, ../../app/assets/stylesheets/workstation.sass */
+div#request_service label {
+  text-align: right;
+  display: inline-block;
+  width: 150px;
+}
+/* line 2883, ../../app/assets/stylesheets/workstation.sass */
+div#request_service input {
+  font-size: 200%;
+  font-weight: bold;
+  width: 300px;
+}
+/* line 2887, ../../app/assets/stylesheets/workstation.sass */
+div#request_service div.generic-button {
+  display: inline-block;
+}
+/* line 2889, ../../app/assets/stylesheets/workstation.sass */
+div#request_service div#connection_status {
+  font-size: 140%;
+  text-align: center;
+  padding: 20px;
+  width: 600px;
+  margin: auto;
+  background-color: #7a607e;
+  border-radius: 8px;
+}
+/* line 2897, ../../app/assets/stylesheets/workstation.sass */
+div#request_service div.connect_service_button_container {
+  display: inline-block;
+  width: 200px;
+  height: 70px;
+}
+/* line 2901, ../../app/assets/stylesheets/workstation.sass */
+div#request_service div#connect_service_ssh,
+div#request_service div#connect_service_vnc {
+  display: none;
+}
+
+/* line 2905, ../../app/assets/stylesheets/workstation.sass */
+div.error_page {
+  font-size: 13px;
+  text-align: center;
+}
+/* line 2908, ../../app/assets/stylesheets/workstation.sass */
+div.error_page div.exception_message {
+  font-size: 150%;
+}
+/* line 2910, ../../app/assets/stylesheets/workstation.sass */
+div.error_page div.errordescription {
+  background-color: #7a607e;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 8px;
+}
+
+/* line 2916, ../../app/assets/stylesheets/workstation.sass */
+div.item_sold_times {
+  font-size: 300%;
+}
+
+/* line 2918, ../../app/assets/stylesheets/workstation.sass */
+div.popup-hide-button {
+  float: right;
+  width: 50px;
+}
+
+/* line 2921, ../../app/assets/stylesheets/workstation.sass */
+div.pos-action-applied {
+  background-color: #c080de;
+  color: black;
+}
+
+@button {
+  display: inline-block;
+}
+
+/* line 2926, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas {
+  border: 2px solid red;
+}
+
+/* line 2928, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #control_panel {
+  border: 2px solid green;
+  display: inline-block;
+}
+
+/* line 2931, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #order_items {
+  border: 2px solid blue;
+  display: inline-block;
+  width: 70%;
+  top: 0;
+}
+
+/* line 2936, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #order_items .order_item_row {
+  border: 1px solid pink;
+  display: inline-block;
+}
+
+/* line 2939, ../../app/assets/stylesheets/workstation.sass */
+#order_total {
+  display: inline-block;
+  font-size: 3em;
+  text-align: right;
+  background-color: red;
+  width: 95%;
+  margin: 5px;
+}
+
+/* line 2946, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas div.fat-button {
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: bolder;
+  margin: 5px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  width: 220px;
+}
+
+/* line 2955, ../../app/assets/stylesheets/workstation.sass */
+.order_item_row div {
+  display: inline-block;
+}
+
+/* line 2957, ../../app/assets/stylesheets/workstation.sass */
+.denomination {
+  width: 100px;
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: bolder;
+  margin: 5px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+}
+
+/* line 2981, ../../app/assets/stylesheets/workstation.sass */
+div.popup-hide-button {
+  float: right;
+  width: 50px;
+}
+
+/* line 2984, ../../app/assets/stylesheets/workstation.sass */
+div.pos-action-applied {
+  background-color: #ed8b00;
+  color: black;
+}
+
+@button {
+  display: inline-block;
+}
+
+/* line 2989, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas {
+  border: 2px solid red;
+}
+
+/* line 2991, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #control_panel {
+  border: 2px solid green;
+  display: inline-block;
+}
+
+/* line 2994, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #order_items {
+  border: 2px solid blue;
+  display: inline-block;
+  width: 70%;
+  top: 0;
+}
+
+/* line 2999, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas #order_items .order_item_row {
+  border: 1px solid pink;
+  display: inline-block;
+}
+
+/* line 3002, ../../app/assets/stylesheets/workstation.sass */
+#order_total {
+  display: inline-block;
+  font-size: 3em;
+  text-align: right;
+  background-color: red;
+  width: 95%;
+  margin: 5px;
+}
+
+/* line 3009, ../../app/assets/stylesheets/workstation.sass */
+#offline_canvas div.fat-button {
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: bolder;
+  margin: 5px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  width: 220px;
+}
+
+/* line 3018, ../../app/assets/stylesheets/workstation.sass */
+.order_item_row div {
+  display: inline-block;
+}
+
+/* line 3020, ../../app/assets/stylesheets/workstation.sass */
+.denomination {
+  width: 100px;
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: bolder;
+  margin: 5px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+}
+
+/* line 3030, ../../app/assets/stylesheets/workstation.sass */
+input:focus {
+  outline: none;
+}
+
+/* line 3033, ../../app/assets/stylesheets/workstation.sass */
+td.shipment-item-attribute-column {
+  padding-right: 30px;
+}
+
+/* line 3035, ../../app/assets/stylesheets/workstation.sass */
+table.padded-table * td,
+table.padded-table * th {
+  padding: 10px;
+}
+
+/* line 3039, ../../app/assets/stylesheets/workstation.sass */
+div.options-row div.option-name {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #80477d;
+  border: 3px solid #773973;
+  border-left: none;
+  border-top: none;
+  text-align: center;
+  font-size: 110%;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  min-width: 100px;
+  border-radius: 4px;
+}
+
+/* line 3053, ../../app/assets/stylesheets/workstation.sass */
+div.options-row div.option-input input,
+div.options-row div.option-input textarea {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  background-color: #80477d;
+  color: white;
+  padding: 6px;
+  font-size: 110%;
+  font-weight: bolder;
+  text-align: center;
+  border: 3px solid #773973;
+  border-radius: 6px;
+  border-left: none;
+  border-top: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #80477d), color-stop(0.9, #773973));
+}
+
+/* line 3070, ../../app/assets/stylesheets/workstation.sass */
+div.options-row div.option-input,
+div.options-row .option-button {
+  display: inline-block;
+  textarea-width: 95%;
+}
+
+/* line 3075, ../../app/assets/stylesheets/workstation.sass */
+.option-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  margin-left: 10px;
+  padding: 5px 15px;
+}
+
+/* line 3080, ../../app/assets/stylesheets/workstation.sass */
+#pos_customer_div {
+  margin-top: -35px;
+  background-color: #0e1d25;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+/* line 3091, ../../app/assets/stylesheets/workstation.sass */
+table.selection {
+  margin: auto;
+}
+/* line 3093, ../../app/assets/stylesheets/workstation.sass */
+table.selection td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* line 3098, ../../app/assets/stylesheets/workstation.sass */
+.floatleft {
+  float: left;
+}
+
+/* line 3101, ../../app/assets/stylesheets/workstation.sass */
+.marginauto {
+  margin: auto;
+}
+
+/* line 3104, ../../app/assets/stylesheets/workstation.sass */
+.floatright {
+  float: right;
+}
+
+/* line 3107, ../../app/assets/stylesheets/workstation.sass */
+.left {
+  text-align: left;
+}
+
+/* line 3110, ../../app/assets/stylesheets/workstation.sass */
+.center {
+  text-align: center;
+}
+
+/* line 3113, ../../app/assets/stylesheets/workstation.sass */
+.right {
+  text-align: right;
+}
+
+/* line 3116, ../../app/assets/stylesheets/workstation.sass */
+.clear {
+  clear: both;
+}
+
+/* line 3119, ../../app/assets/stylesheets/workstation.sass */
+a.new-model-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+  color: #0e1d25;
+  padding: 10px 20px;
+}
+
+/* line 3124, ../../app/assets/stylesheets/workstation.sass */
+div#error_explanation {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: #ad2121;
+  clear: both;
+  color: white;
+  text-align: left;
+  padding: 10px;
+}
+
+/* line 3132, ../../app/assets/stylesheets/workstation.sass */
+div.pagination {
+  text-align: center;
+}
+
+/* line 3137, ../../app/assets/stylesheets/workstation.sass */
+div.black-text, td.black-text, a.black-text, div.black-text a {
+  color: black;
+}
+
+/* line 3140, ../../app/assets/stylesheets/workstation.sass */
+#add_payment_method_button {
+  font-size: 95%;
+  padding: 10px;
+}
+
+/* line 3144, ../../app/assets/stylesheets/workstation.sass */
+.ui-dialog .ui-widget-header {
+  border: 1px solid #0b3e6f;
+  background: #75b10d url(/images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png) 50% 50% repeat;
+  color: white;
+  font-weight: bold;
+}
+
+/* line 3149, ../../app/assets/stylesheets/workstation.sass */
+.ui-dialog .ui-dialog-content {
+  background: #243239 50% top repeat-x;
+  color: #d9d9d9;
+}
+
+/* line 3152, ../../app/assets/stylesheets/workstation.sass */
+.ui-widget-content {
+  border: 1px solid black;
+  background: #243239 50% top repeat-x;
+  color: #d9d9d9;
+}
+
+/* line 3156, ../../app/assets/stylesheets/workstation.sass */
+.ui-dialog input.ui-widget-content {
+  background: #0e1d25;
+  color: white;
+}
+
+/* line 3159, ../../app/assets/stylesheets/workstation.sass */
+.ui-widget-content .ui-state-highlight {
+  border: 1px solid #052f57;
+  background: #74101b;
+  color: white;
+}
+
+/* line 3163, ../../app/assets/stylesheets/workstation.sass */
+#add_payment_method_button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  background-color: #ed8b00;
+}
+
+/* line 3166, ../../app/assets/stylesheets/workstation.sass */
+input.payment-method-input {
+  border-radius: 8px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #788285;
+  font-size: 140%;
+  color: white;
+  background-color: #0e1d25;
+  background-color: #0e1d25;
+  color: white;
+  width: 200px;
+}
+
+/* line 3174, ../../app/assets/stylesheets/workstation.sass */
+form#logoutform {
+  display: none;
+}
+
+/* line 3177, ../../app/assets/stylesheets/workstation.sass */
+div#modcoder_colorpicker {
+  position: absolute;
+  z-index: 200;
+}
+
+/* line 3181, ../../app/assets/stylesheets/workstation.sass */
+input.modcoder_excolor_clrbox {
+  padding: 2px 20px;
+}
+
+/* line 3184, ../../app/assets/stylesheets/workstation.sass */
+div.dialog-button {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+/* line 3188, ../../app/assets/stylesheets/workstation.sass */
+div.new_inventory_box {
+  background: #222222 url(/images/alert-overlay.png) repeat-x;
+  box-shadow: 0px 5px 10px black;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  font-size: 180%;
+  margin: 40px auto 0px auto;
+  padding: 20px;
+  width: 400px;
+}
+/* line 3198, ../../app/assets/stylesheets/workstation.sass */
+div.new_inventory_box table div#inventory_msg {
+  position: absolute;
+}
+/* line 3201, ../../app/assets/stylesheets/workstation.sass */
+div.new_inventory_box table div#inventory_msg {
+  color: green;
+  font-size: 500%;
+  display: none;
+}
+
+/* line 3206, ../../app/assets/stylesheets/workstation.sass */
+.yieldbox {
+  margin: -10px auto 0px auto;
+  width: 75%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px 50px 150px 50px;
+  box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.4);
+}
+
+/* line 3215, ../../app/assets/stylesheets/workstation.sass */
+table.item_stock_form td {
+  text-align: left;
+}
+
+/* line 3218, ../../app/assets/stylesheets/workstation.sass */
+table.stock_transactions {
+  border-collapse: collapse;
+  width: 244px;
+}
+/* line 3221, ../../app/assets/stylesheets/workstation.sass */
+table.stock_transactions td, table.stock_transactions th {
+  border: 1px solid #243239;
+}
+/* line 3223, ../../app/assets/stylesheets/workstation.sass */
+table.stock_transactions th {
+  background-color: #243239;
+}
+
+/* line 3226, ../../app/assets/stylesheets/workstation.sass */
+.fieldset {
+  border: 2px solid #243239;
+  border-radius: 8px;
+  padding: 10px;
+  width: 300px;
+  margin: 5px;
+}
+
+/* line 3233, ../../app/assets/stylesheets/workstation.sass */
+.item_stock_fieldset,
+.item_shipper_fieldset {
+  display: inline-block;
+  width: 250px;
+  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 3239, ../../app/assets/stylesheets/workstation.sass */
+.item_stock_fieldset input,
+.item_shipper_fieldset input {
+  width: 50%;
+}
+
+/* line 3243, ../../app/assets/stylesheets/workstation.sass */
+div.paper-invoice {
+  text-align: left;
+  background-color: white;
+  min-height: 1060px;
+  color: black;
+  width: 750px;
+  margin: 50px auto;
+  padding: 40px 30px 50px 30px;
+  position: relative;
+  font-size: 90%;
+}
+
+/* line 3255, ../../app/assets/stylesheets/workstation.sass */
+ul#translation_form input {
+  background-color: transparent;
+  color: black;
+}
+/* line 3258, ../../app/assets/stylesheets/workstation.sass */
+ul#translation_form span {
+  min-width: 100px;
+  display: inline-block;
+}
+
+/* line 3262, ../../app/assets/stylesheets/workstation.sass */
+table#upload_dropzone {
+  display: none;
+}

@@ -1,0 +1,64 @@
+
+
+<table width="80%" align="center" class="ui-corner-all ui-widget ui-content stripe-me overflowing-table">
+  <tr class="no-stripe">
+    <td colspan=6 ><h2>Drawer Transactions: </h2><br /><hr /></td>
+  </tr>
+  <% @order.drawer_transactions.order("id desc").each do |dt| %>
+    <tr >
+        <td><%= number_to_currency(dt.amount) %> (<%= dt.drawer_amount %>)</td>
+        <td><%= l dt.created_at, :format => "%H:%I:%S" %></td>
+        <td><%= dt.user ? dt.user.username : 'Unknown' %>[<%= dt.drawer_id %>]</td>
+        <td><%= dt.tag %></td>
+        <td <%= dt.order != nil and dt.order_id == @order.id ? raw('style="background-color: red;"') : ''%>><small>Nr: <%= dt.order.nr rescue '' %> ID: <%= dt.order.id rescue ''%></small></td>
+        <td><%= salor_icon(:delete,{:onclick => "window.location = '/orders/undo_drawer_transaction?id=#{dt.id}&oid=#{@order.id}'", :class => "pointer"},16) if @current_user.role_cache.include? "manager"%></td>
+    </tr>
+  <% end %>
+  <tr class="no-stripe">
+    <td colspan=6 ><h2>Surrounding Drawer Transactions: </h2><br /><hr /></td>
+  </tr>
+  <% DrawerTransaction.where(["created_at between ? and ?",@order.created_at - 20.minutes,@order.created_at + 20.minutes]).order("id desc").each do |dt| %>
+    <tr >
+        <td><%= number_to_currency(dt.amount) %> (<%= dt.drawer_amount %>)</td>
+        <td><%= l dt.created_at, :format => "%H:%I:%S" %></td>
+        <td><%= dt.user ? dt.user.username : 'Unknown' %>[<%= dt.drawer_id %>]</td>
+        <td><%= dt.tag %></td>
+        <td <%= dt.order != nil and dt.order_id == @order.id ? raw('style="background-color: red;"') : ''%>><small>Nr: <%= dt.order.nr rescue '' %> ID: <%= dt.order.id rescue ''%></small></td>
+        <td><%= salor_icon(:delete,{:onclick => "window.location = '/orders/undo_drawer_transaction?id=#{dt.id}&oid=#{@order.id}'", :class => "pointer"},16) if @current_user.role_cache.include? "manager"%></td>
+    </tr>
+  <% end %>
+  
+  <tr class="no-stripe">
+    <td colspan=6 ><h2>History: </h2><br /><hr /></td>
+  </tr>
+  <% @order.histories.order("id desc").each do |h| %>
+    <tr>
+      <td colspan="6">[<%= l h.created_at, :format => "%H:%I:%S" %>] <b><%= h.url[0,h.url.index("?")] rescue h.url %></b></td>
+    </tr>
+    <tr>
+      <td title="<%= h.url %>">&nbsp;</td>
+      <td title="<%= h.action_taken %>"><%= h.action_taken[0..45] %></td>
+      <td onclick="$('#changes_made_<%= h.id %>').toggle();">
+        <%= h.changes_made[0..25] if h.changes_made %>
+        <div id="changes_made_<%= h.id %>" class="hidden">
+          <pre>
+<%= JSON.pretty_unparse(JSON.parse(h.changes_made)) rescue "" %>
+          </pre>
+        </div>
+      </td>
+      <td colspan=3 onclick="$('#params_<%= h.id %>').toggle();">
+      
+        <%= h.params[0..25] if h.params %>
+        <div id="params_<%= h.id %>" class="hidden">
+          <pre>
+<%= JSON.pretty_unparse(JSON.parse(h.params)) rescue "" %>
+          </pre>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<br />
+<br />
+<br />

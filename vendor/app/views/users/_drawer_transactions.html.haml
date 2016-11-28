@@ -1,0 +1,13 @@
+%h2=I18n.t('activerecord.models.drawer_transaction.other')
+%table.striped-table2
+  %tr
+    %td= t "activerecord.attributes.tag"
+    %td= t "activerecord.attributes.created_at"
+    %td= t "activerecord.attributes.notes"
+    %td= t "activerecord.attributes.amount"
+  - @user.drawer_transactions.visible.where(:complete_order => nil).where(:created_at => (@from.beginning_of_day)..(@to.end_of_day)).each do |dt|
+    %tr
+      %td= dt.tag
+      %td= l dt.created_at, :format => :long
+      %td= raw dt.notes
+      %td{:align=>"right"}= humanized_money_with_symbol dt.amount

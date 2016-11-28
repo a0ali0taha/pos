@@ -1,0 +1,54 @@
+!!!
+
+%html
+  %head
+    %title SalorRetail
+    = tag 'meta', {:content => "width=device-width, initial-scale=1.0", :name => "viewport"}, true
+    - if mobile?
+      %link{ :rel => "apple-touch-icon", :href => "apple-touch-icon-57x57.png"}
+      %link{ :rel => "apple-touch-icon", :sizes => "72x72", :href => "apple-touch-icon-72x72.png"}
+      %link{ :rel => "apple-touch-icon", :sizes => "114x114", :href => "apple-touch-icon-114x114.png"}
+    = stylesheet_link_tag 'print', :media => 'print'
+    = stylesheet_link_tag 'ui-min.css'
+    = stylesheet_link_tag 'generic'
+    = stylesheet_link_tag 'dropzone'
+    = stylesheet_link_tag workstation? ? 'workstation' : 'mobile'
+
+    = javascript_include_tag 'application'
+
+    = javascript_include_tag "/jslocales/main.#{I18n.locale}.js"
+    = javascript_include_tag "jquery.ui.datepicker-#{ I18n.locale }"
+    = javascript_include_tag 'dropzone'
+    - if @current_vendor
+      = javascript_include_tag "/jslocales/region.#{@current_vendor.region}.js"
+    - if @current_user
+      = render :partial => "shared/application_js"
+    - if @current_plugin_manager and @current_plugin_manager.javascript_files.any?
+      - @current_plugin_manager.javascript_files.each do |k,v|
+        - v.each do |f|
+          %script{ :type => "text/javascript", :src => "#{ @current_vendor.urls[:plugins] }/#{ k }/#{ f }"}
+    - if @current_plugin_manager and @current_plugin_manager.stylesheet_files.any?
+      - @current_plugin_manager.stylesheet_files.each do |k,v|
+        - v.each do |f|
+          %link{ :rel => "stylesheet", :type => "text/css", :href => "#{ @current_vendor.urls[:plugins] }/#{ k }/#{ f }"}
+
+
+
+  %body#body
+    = render :partial => "shared/header_menu" if @current_user and @current_user.can(:see_header) 
+    .errors.hidden
+    .help.hidden
+    = render :partial => "shared/cash_drop" if @current_user
+    = render :partial => "shared/clockin"
+    
+    .yieldbox= yield
+    
+    = form_tag session_path, :id => 'logoutform', :method => 'delete' do
+      %span
+    = render :partial => "shared/messages"
+    %span.version= SalorRetail::Application::VERSION
+
+      
+:javascript
+  var i18nlocale = "#{ I18n.locale }";
+  sr.data.params = #{raw params.to_json};
