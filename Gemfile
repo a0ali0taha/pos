@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "1.9.2"
+ruby "2.0.0"
 # The following gems are already part of Debian Wheezy and do NOT cause a dependency to the online API of rubygems.org
 gem 'rails', '3.2.6'
 gem 'rake', '0.9.2.2'
@@ -18,7 +18,7 @@ gem 'mechanize'
 gem 'haml', '4.0.0' # wheezy's version 3.1.6 seems to be broken with sass '3.1.19'
 gem 'mysql2','0.3.10'
 gem 'activerecord-postgresql-adapter'
-gem 'pg'
+
 #gem 'sqlite3'
 gem 'coffee-rails'
 gem 'therubyracer', '0.11.4', :require => 'v8'
