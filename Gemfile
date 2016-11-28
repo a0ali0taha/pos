@@ -17,6 +17,7 @@ gem 'mechanize'
 # The following gems are already part of Debian Wheezy and DO cause a dependency to the online API of rubygems.org
 gem 'haml', '4.0.0' # wheezy's version 3.1.6 seems to be broken with sass '3.1.19'
 gem 'mysql2','0.3.10'
+gem 'activerecord-postgresql-adapter'
 gem 'pg'
 #gem 'sqlite3'
 gem 'coffee-rails'
